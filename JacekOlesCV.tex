@@ -98,59 +98,121 @@
 \def \cvlocation {Polska, Krak\'ow}
 \def \cvsite {www.jacek.oles.pl}
 \def \cvmail {jacek.oles92@gmail.com}
-\def \cvlinkedin {jacek-oles-920625}
-\def \cvgithub {axal25}
+\def \cvlinkedin {linkedin.com/in/jacek-oles-920625}
+\def \cvgithub {github.com/axal25}
 % \documentclass[hidelinks ... ]{ ... }
+\newcommand{\contactInfoVSpaceOne}[1]{\renewcommand{\contactInfoVSpaceOne}{#1}}
+\contactInfoVSpaceOne{0mm}
+\newcommand{\contactInfoVSpaceTwo}[1]{\renewcommand{\contactInfoVSpaceTwo}{#1}}
+\contactInfoVSpaceTwo{0mm}
+\newcommand{\contactInfoFontSize}[1]{\renewcommand{\contactInfoFontSize}{#1}}
+\contactInfoFontSize{9px}
+\newcommand{\raiseSymbol}[2]{\raisebox{#1}{#2}}
+\newcommand{\reposMobile}{\raiseSymbol{-3.5pt}{\faMobile}\relax}
+\newcommand{\reposHome}{\raiseSymbol{-3.1pt}{\faHome}\relax}
+\newcommand{\reposEnvelope}{\raiseSymbol{-3.1pt}{\faEnvelopeO}\relax}
+\newcommand{\reposLinkedin}{\raiseSymbol{-3.1\depth}{\faLinkedin}\relax}
+\newcommand{\reposGithub}{\raiseSymbol{-3.1\depth}{\faGithub}\relax}
+\newlength\xGithubShift
+\pgfmathsetlength\xGithubShift{0.00mm}
+\newlength\xMobileShift
+\pgfmathsetlength\xMobileShift{\xGithubShift + 2.5mm}
+\newlength\xHomeShift
+\pgfmathsetlength\xHomeShift{\xGithubShift + 0.75mm}
+\newlength\xEnvelopeShift
+\pgfmathsetlength\xEnvelopeShift{\xGithubShift + 0.5mm}
+\newlength\xLinkedinShift
+\pgfmathsetlength\xLinkedinShift{\xGithubShift + 1.0mm}
 \newcommand{\contactInfo}{
 	\vspace{4mm}
-    \renewcommand{\arraystretch}{2}
-    \begin{tabular}{p{1cm} @{\hskip 0.5cm}p{5cm}}
-      		{
-      			$ \begin{array}{l}
-      			\hspace{5mm} $\huge$ \textnormal{\faMobile} 
-      			\end{array} $
-      		} 
-            \vspace{0mm} & \cvnumberphone \vspace{0mm} \\
-      		{
-      			$ \begin{array}{l}
-      			\hspace{3.2mm} $\huge$ \textnormal{\textcolor{locationIconColor}{\faHome}} 
-      			\end{array} $
-      		} 
-            \vspace{0mm} & \cvlocation \vspace{0mm} \\
+    \renewcommand{\arraystretch}{2.25}
+    \begin{tabular}{m{8cm}}
+   		{%
+   			\vspace{\contactInfoVSpaceOne}%
+   			\hspace{\xMobileShift}%
+   			\huge{%
+	   			\textnormal{%
+	   				\reposMobile%
+	   			}%
+   			}%
+	   		\hspace{1.2mm}%
+   			\changeFontSize{\contactInfoFontSize}
+   				\cvnumberphone%
+   			\vspace{\contactInfoVSpaceTwo}%
+   		} \\
+
+   		{%
+   			\vspace{\contactInfoVSpaceOne}%
+   			\hspace{\xHomeShift}%
+   			\huge%
+   			\textnormal{%
+   			\textcolor{locationIconColor}%
+   				\reposHome%
+   			}%
+   			\hspace{0.0mm}%
+   			\changeFontSize{\contactInfoFontSize}%
+   				\cvlocation%
+   			\vspace{\contactInfoVSpaceTwo}%
+   		}%
+   		\\
+
+%           {
+%           	$ \begin{array}{l}
+%           	\hspace{2.8mm} $\huge$ \textnormal{\textcolor{webPageIconColor}{\faGlobe}}
+%           	\end{array} $
+%           } 
+%           \vspace{\contactInfoVSpaceOne} & \href{http://\cvsite}{\cvsite} \vspace{\contactInfoVSpaceTwo} \\
+
+		\href{mailto:\cvmail}{%
+			\vspace{\contactInfoVSpaceOne}%
+           	\hspace{\xEnvelopeShift}%
+           	\huge%
+           	\textnormal{%
+           		\textcolor{emailIconColor}%
+           		\reposEnvelope%
+           	}%
+           	\hspace{0.2mm}%
+           	\changeFontSize{\contactInfoFontSize}%
+           		\cvmail%
+           	\vspace{\contactInfoVSpaceTwo}%
+        }% 
+       	\\
+  
+        \href{https://www.\cvlinkedin}{%
+        	\vspace{\contactInfoVSpaceOne}%
+           	\hspace{\xLinkedinShift}%
+           	\huge%
+           	\textnormal{%
+           		\textcolor{linkedinIconColor}%
+           		\reposLinkedin%
+           	}%
+           	\hspace{0.3mm}%
+           	\changeFontSize{\contactInfoFontSize}%
+           		\cvlinkedin%
+           	\vspace{\contactInfoVSpaceTwo}%
+        }% 
+    	\\
             
-%            {
-%            	$ \begin{array}{l}
-%            	\hspace{2.8mm} $\huge$ \textnormal{\textcolor{webPageIconColor}{\faGlobe}}
-%            	\end{array} $
-%            } 
-%            \vspace{0mm} & \href{http://\cvsite}{\cvsite} \vspace{0mm} \\
-            {
-            	$ \begin{array}{l}
-            	\hspace{3.0mm} $\huge$ \textnormal{\textcolor{emailIconColor}{\faEnvelopeO}}
-            	\end{array} $
-            } 
-            \vspace{0mm} & \href{mailto:\cvmail}{\cvmail} \vspace{0mm} \\
-      
-            {
-            	$ \begin{array}{l}
-            	\hspace{3.5mm} $\huge$ \textnormal{\textcolor{linkedinIconColor}{\faLinkedin}}
-            	\end{array} $
-            } 
-            \vspace{0mm} & \href{https://www.linkedin.com/in/\cvlinkedin}{\cvlinkedin} \vspace{0mm} \\
-                
-            {
-            	$ \begin{array}{l}
-            	\hspace{3.5mm} $\huge$ \textnormal{\textcolor{githubIconColor}{\faGithub}}
-            	\end{array} $
-            } 
-            \vspace{0mm} & \href{https://www.github.com/\cvgithub}{\cvgithub} \vspace{0mm} \\
+        \href{https://www.\cvgithub}{
+           	\vspace{\contactInfoVSpaceOne}%
+           	\hspace{\xGithubShift}%
+           	\huge%
+           	\textnormal{%
+           		\textcolor{githubIconColor}%
+           		\reposGithub%
+           	}%
+           	\hspace{0.4mm}%
+           	\changeFontSize{\contactInfoFontSize}%
+           		\cvgithub%
+           	\vspace{\contactInfoVSpaceTwo}%
+        } \\
     \end{tabular}
 }
 
 \newcommand{\xPosContactInfo}[1]{\renewcommand{\xPosContactInfo}{#1}}
 \xPosContactInfo{0.0}
 \newcommand{\yPosContactInfo}[1]{\renewcommand{\yPosContactInfo}{#1}}
-\yPosContactInfo{3.75}
+\yPosContactInfo{3.4}
 \newcommand{\numberOfContactInfoCircles}[1]{\renewcommand{\numberOfContactInfoCircles}{#1}}
 \numberOfContactInfoCircles{5}
 \newcommand{\indexOfGithubIcon}[1]{\renewcommand{\indexOfGithubIcon}{#1}}
@@ -167,9 +229,9 @@
 		{\value{currentNumberOfCircle} < \numberOfContactInfoCircles}
 		{
 			\ifnum \value{currentNumberOfCircle} = \indexOfGithubIcon
-				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} - 1)*41.25+39.5}
+				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} - 1)*34.25+33.25}
 			\else
-				\pgfmathsetlength{\currentYOffset}{\value{currentNumberOfCircle}*41.25}
+				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} )*34.25}
 			\fi
 			\node [ 
    				circle, 
@@ -178,7 +240,7 @@
 				inner sep = 10pt, 
 				outer sep = 7pt
 			] at 
-			(\xPosContactInfo +0.735, \yPosContactInfo +102pt - \currentYOffset) 
+			(\xPosContactInfo +0.3125, \yPosContactInfo +78.5pt - \currentYOffset) 
 			{ };	
 		}
 	\end{tikzpicture}
@@ -194,7 +256,7 @@
 \newcommand{\xPosSideBarSection}[1]{\renewcommand{\xPosSideBarSection}{#1}}
 \xPosSideBarSection{0.275}
 \newcommand{\yPosSideBarSection}[1]{\renewcommand{\yPosSideBarSection}{#1}}
-\yPosSideBarSection{7.5}
+\yPosSideBarSection{6.9}
 \newlength{\sectionRulerLength}
 \newlength{\sectionTitleLength}
 \newcommand{\sideBarSection}[2]{%
@@ -229,7 +291,7 @@
 \newcommand{\xPosSkills}[1]{\renewcommand{\xPosSkills}{#1}}
 \xPosSkills{ 0.35 }
 \newcommand{\yPosSkills}[1]{\renewcommand{\yPosSkills}{#1}}
-\yPosSkills{ 8.0 }
+\yPosSkills{ 7.5 }
 \newcommand{\posSkills}[1]{
 	\begin{textblock}{2}(\xPosSkills, \yPosSkills)
 		\drawSkills{#1}
@@ -707,8 +769,8 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 
 \newcommand{\yPosInterestSection}[1]{\renewcommand{\yPosInterestSection}{#1}}
 \yPosInterestSection{ 13.25 } 
-\newcommand{\yCertificatesSection}[1]{\renewcommand{\yCertificatesSection}{#1}}
-\yCertificatesSection{ 230pt } 
+\newcommand{\yPosCertificatesSection}[1]{\renewcommand{\yPosCertificatesSection}{#1}}
+\yPosCertificatesSection{ 255pt } 
 \newlength\projectsHrefAreaWidth
 \pgfmathsetlength{\projectsHrefAreaWidth}{\projectsTableWidth+0.9cm}
 \newcommand{\xPosProjectsHrefArea}[1]{\renewcommand{\xPosProjectsHrefArea}{#1}}
@@ -727,13 +789,13 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 	\posSkills{%
 		{Unix \textbullet{} Github \textbullet{} LaTeX \textbullet{} UI Diagrams/2.0},%
 		{JavaScript \textbullet{} Angular 5 \textbullet{} Node.js/2.0},%
-		{HTML \textbullet{} CSS/2.25},%
+		{HTML \textbullet{} CSS \textbullet{} Word/2.25},%
 		{Erlang \textbullet{} Prolog \textbullet{} Haskell/2.5},%
-		{C \textbullet{} C++ \textbullet{} Ada \textbullet{} Matlab/2.75},%
+		{C \textbullet{} C++ \textbullet{} Ada \textbullet{} Matlab \textbullet{} Excel/2.75},%
 		{PostgreSQL \textbullet{} JavaEE/3.0},%
 		{Java/4.0}%
 	}
-	\sideBarSection{Certyfikaty}{ \yCertificatesSection }
+	\sideBarSection{Certyfikaty}{ \yPosCertificatesSection }
 	\certificates
 	\posCustomSection{Edukacja}{6}{-0.159}
 	\educationTable
@@ -743,7 +805,7 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 	\projectsTable{5.6}{7.25}
 %	\posHrefArea{https://github.com/axal25/JacksChess}{\xPosProjectsHrefArea}{7.2}{\projectsHrefAreaWidth}{3.75cm}
 
-	\sideBarSection{Certyfikaty}{ \yCertificatesSection }
+	\sideBarSection{Certyfikaty}{ \yPosCertificatesSection }
 	\posCustomSection{Zainteresowania}{6}{ \yPosInterestSection }
 	\interests{5.6}{14.0}
 	\permissionFootnote%
