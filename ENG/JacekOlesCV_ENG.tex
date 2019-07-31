@@ -1,0 +1,822 @@
+% https://pdfhost.io/v/IoOkJ0QfC_JacekOlesCVpdf.pdf
+% https://pdfhost.io/edit?doc=5d63b4cd-be53-4241-a5cf-4a75d37bb6be
+\documentclass[hidelinks, a4paper, 11pt]{article}
+\author{Jacek Ole\'s}
+\title{CV}
+\date{01.07.2019}
+
+\usepackage[polish]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage[latin2]{inputenc} 
+\selectlanguage{polish}
+\usepackage[sfdefault]{ClearSans}
+\usepackage[margin=0pt]{geometry}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\definecolor{testColor}{HTML}{ff33f9}
+\definecolor{sideBarColor}{RGB}{210, 210, 210}
+\newcommand{\sideBarWidth}[1] { \renewcommand{\sideBarWidth}{#1} }
+\sideBarWidth{8cm}
+\newcommand{\drawSideBar}{
+	\begin{tikzpicture}[remember picture,overlay]
+   		\node [ 
+   			rectangle, 
+   			fill=sideBarColor, 
+   			anchor=north west, 
+   			minimum width = \sideBarWidth+0.05cm, 
+   			minimum height= \paperheight+0.5cm 
+   		] (box) at (-0.85cm,0.5cm) { };
+	\end{tikzpicture}
+}
+
+\definecolor{nameColor}{RGB}{34, 85, 128}
+\newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
+\cvname{Jacek Ole\'s}
+\newcommand{\xPosName}[1]{\renewcommand{\xPosName}{#1}}
+\xPosName{1.25}
+\newcommand{\yPosName}[1]{\renewcommand{\yPosName}{#1}}
+\yPosName{-0.25}
+\newcommand{\drawName}{
+	\begin{textblock}{2}(\xPosName, \yPosName)
+    	\vspace{3mm} { \Huge \color{nameColor} \cvname }
+    \end{textblock}
+}
+
+\newlength\profilePicSize
+\pgfmathsetlength{\profilePicSize}{4cm}
+\newlength\circleSize
+\pgfmathsetlength{\circleSize}{\profilePicSize/600}
+\newlength\profilePicScale
+\pgfmathsetlength{\profilePicScale}{1.25}
+\newlength\profilePicRescaledSize
+\pgfmathsetlength{\profilePicRescaledSize}{\profilePicScale * \profilePicSize}
+\newlength\outterCircleSize
+\pgfmathsetlength{\outterCircleSize}{\circleSize+150}
+
+\newcommand{\drawProfilePic}[1]{
+	\begin{center}
+		\begin{tikzpicture}[remember picture,overlay]
+			\node [ 
+   				circle, 
+   				fill=nameColor, 
+				anchor=north west, 
+				inner sep = \profilePicSize/2.25, 
+				outer sep = 0pt
+			] at (0.0cm, 4.05cm) { };
+		\end{tikzpicture}
+		\begin{tikzpicture}[x = \circleSize,y = - \circleSize]
+		\hspace*{-0.6cm} \clip (0, 0) circle (340);
+			\node [ 
+   				circle, 
+   				fill=testColor
+			] at (0, 0) { \includegraphics[width = \profilePicRescaledSize]{#1} };
+		\end{tikzpicture}
+	\end{center}
+}
+
+\usepackage{textpos}
+\newcommand{\xPosProfilePic}[1]{\renewcommand{\xPosProfilePic}{#1}}
+\xPosProfilePic{0.65}
+\newcommand{\yPosProfilePic}[1]{\renewcommand{\yPosProfilePic}{#1}}
+\yPosProfilePic{0.7}
+\newcommand{\posProfilePic}[1]{
+		\begin{textblock}{5}(\xPosProfilePic, \yPosProfilePic)
+			\drawProfilePic{#1}
+		\end{textblock}
+}
+
+\usepackage{parskip}
+\usepackage{ifmtarg}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+
+\definecolor{locationIconColor}{RGB}{30, 163, 98}
+\definecolor{webPageIconColor}{RGB}{30, 187, 238}
+\definecolor{emailIconColor}{RGB}{212, 70, 56}
+\definecolor{linkedinIconColor}{RGB}{0, 97, 146}
+\definecolor{githubIconColor}{RGB}{33, 31, 31}
+\def \cvnumberphone {693534913}
+\def \cvlocation {Poland, Cracow}
+\def \cvsite {www.jacek.oles.pl}
+\def \cvmail {jacek.oles92@gmail.com}
+\def \cvlinkedin {linkedin.com/in/jacek-oles-920625}
+\def \cvgithub {github.com/axal25}
+% \documentclass[hidelinks ... ]{ ... }
+\newcommand{\contactInfoVSpaceOne}[1]{\renewcommand{\contactInfoVSpaceOne}{#1}}
+\contactInfoVSpaceOne{0mm}
+\newcommand{\contactInfoVSpaceTwo}[1]{\renewcommand{\contactInfoVSpaceTwo}{#1}}
+\contactInfoVSpaceTwo{0mm}
+\newcommand{\contactInfoFontSize}[1]{\renewcommand{\contactInfoFontSize}{#1}}
+\contactInfoFontSize{9px}
+\newcommand{\raiseSymbol}[2]{\raisebox{#1}{#2}}
+\newcommand{\reposMobile}{\raiseSymbol{-3.5pt}{\faMobile}\relax}
+\newcommand{\reposHome}{\raiseSymbol{-3.1pt}{\faHome}\relax}
+\newcommand{\reposEnvelope}{\raiseSymbol{-3.1pt}{\faEnvelopeO}\relax}
+\newcommand{\reposLinkedin}{\raiseSymbol{-3.1\depth}{\faLinkedin}\relax}
+\newcommand{\reposGithub}{\raiseSymbol{-3.1\depth}{\faGithub}\relax}
+\newlength\xGithubShift
+\pgfmathsetlength\xGithubShift{0.00mm}
+\newlength\xMobileShift
+\pgfmathsetlength\xMobileShift{\xGithubShift + 2.5mm}
+\newlength\xHomeShift
+\pgfmathsetlength\xHomeShift{\xGithubShift + 0.75mm}
+\newlength\xEnvelopeShift
+\pgfmathsetlength\xEnvelopeShift{\xGithubShift + 0.5mm}
+\newlength\xLinkedinShift
+\pgfmathsetlength\xLinkedinShift{\xGithubShift + 1.0mm}
+\newcommand{\contactInfo}{
+	\vspace{4mm}
+    \renewcommand{\arraystretch}{2.25}
+    \begin{tabular}{m{8cm}}
+   		{%
+   			\vspace{\contactInfoVSpaceOne}%
+   			\hspace{\xMobileShift}%
+   			\huge{%
+	   			\textnormal{%
+	   				\reposMobile%
+	   			}%
+   			}%
+	   		\hspace{1.2mm}%
+   			\changeFontSize{\contactInfoFontSize}
+   				\cvnumberphone%
+   			\vspace{\contactInfoVSpaceTwo}%
+   		} \\
+
+   		{%
+   			\vspace{\contactInfoVSpaceOne}%
+   			\hspace{\xHomeShift}%
+   			\huge%
+   			\textnormal{%
+   			\textcolor{locationIconColor}%
+   				\reposHome%
+   			}%
+   			\hspace{0.0mm}%
+   			\changeFontSize{\contactInfoFontSize}%
+   				\cvlocation%
+   			\vspace{\contactInfoVSpaceTwo}%
+   		}%
+   		\\
+
+%           {
+%           	$ \begin{array}{l}
+%           	\hspace{2.8mm} $\huge$ \textnormal{\textcolor{webPageIconColor}{\faGlobe}}
+%           	\end{array} $
+%           } 
+%           \vspace{\contactInfoVSpaceOne} & \href{http://\cvsite}{\cvsite} \vspace{\contactInfoVSpaceTwo} \\
+
+		\href{mailto:\cvmail}{%
+			\vspace{\contactInfoVSpaceOne}%
+           	\hspace{\xEnvelopeShift}%
+           	\huge%
+           	\textnormal{%
+           		\textcolor{emailIconColor}%
+           		\reposEnvelope%
+           	}%
+           	\hspace{0.2mm}%
+           	\changeFontSize{\contactInfoFontSize}%
+           		\cvmail%
+           	\vspace{\contactInfoVSpaceTwo}%
+        }% 
+       	\\
+  
+        \href{https://www.\cvlinkedin}{%
+        	\vspace{\contactInfoVSpaceOne}%
+           	\hspace{\xLinkedinShift}%
+           	\huge%
+           	\textnormal{%
+           		\textcolor{linkedinIconColor}%
+           		\reposLinkedin%
+           	}%
+           	\hspace{0.3mm}%
+           	\changeFontSize{\contactInfoFontSize}%
+           		\cvlinkedin%
+           	\vspace{\contactInfoVSpaceTwo}%
+        }% 
+    	\\
+            
+        \href{https://www.\cvgithub}{
+           	\vspace{\contactInfoVSpaceOne}%
+           	\hspace{\xGithubShift}%
+           	\huge%
+           	\textnormal{%
+           		\textcolor{githubIconColor}%
+           		\reposGithub%
+           	}%
+           	\hspace{0.4mm}%
+           	\changeFontSize{\contactInfoFontSize}%
+           		\cvgithub%
+           	\vspace{\contactInfoVSpaceTwo}%
+        } \\
+    \end{tabular}
+}
+
+\newcommand{\xPosContactInfo}[1]{\renewcommand{\xPosContactInfo}{#1}}
+\xPosContactInfo{0.0}
+\newcommand{\yPosContactInfo}[1]{\renewcommand{\yPosContactInfo}{#1}}
+\yPosContactInfo{3.4}
+\newcommand{\numberOfContactInfoCircles}[1]{\renewcommand{\numberOfContactInfoCircles}{#1}}
+\numberOfContactInfoCircles{5}
+\newcommand{\indexOfGithubIcon}[1]{\renewcommand{\indexOfGithubIcon}{#1}}
+\indexOfGithubIcon{4}
+\newlength\currentYOffset
+\pgfmathsetlength{\currentYOffset}{0}
+\definecolor{iconBackDropColor}{RGB}{255,255,255}
+
+\usepackage{forloop}
+\newcommand{\drawContactInfoCircles}{
+	\newcounter{currentNumberOfCircle}
+	\begin{tikzpicture}[remember picture,overlay]
+		\forloop{currentNumberOfCircle}{0}
+		{\value{currentNumberOfCircle} < \numberOfContactInfoCircles}
+		{
+			\ifnum \value{currentNumberOfCircle} = \indexOfGithubIcon
+				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} - 1)*34.25+33.25}
+			\else
+				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} )*34.25}
+			\fi
+			\node [ 
+   				circle, 
+   				fill=iconBackDropColor, 
+				anchor=north west, 
+				inner sep = 10pt, 
+				outer sep = 7pt
+			] at 
+			(\xPosContactInfo +0.3125, \yPosContactInfo +78.5pt - \currentYOffset) 
+			{ };	
+		}
+	\end{tikzpicture}
+}
+
+\newcommand{\posContactInfo}{
+	\begin{textblock}{2}(\xPosContactInfo, \yPosContactInfo)
+		\drawContactInfoCircles
+		\contactInfo
+	\end{textblock}
+}
+
+\newcommand{\xPosSideBarSection}[1]{\renewcommand{\xPosSideBarSection}{#1}}
+\xPosSideBarSection{0.275}
+\newcommand{\yPosSideBarSection}[1]{\renewcommand{\yPosSideBarSection}{#1}}
+\yPosSideBarSection{6.9}
+\newlength{\sectionRulerLength}
+\newlength{\sectionTitleLength}
+\newcommand{\sideBarSection}[2]{%
+	\begin{textblock}{5}(\xPosSideBarSection, \yPosSideBarSection)
+	\setlength\sectionRulerLength{\sideBarWidth}
+	\settowidth{\sectionTitleLength}{\huge #1 }
+	\addtolength\sectionRulerLength{-\sectionTitleLength}
+	\addtolength\sectionRulerLength{-1.18cm}
+	\addtolength\sectionRulerLength{-0.45cm}
+	\vspace{#2}
+	{ 
+		\color{black!80} 
+		\huge #1 
+		\rule[0.15\baselineskip]{\sectionRulerLength}{1pt}
+	}
+	\end{textblock}
+}
+
+\definecolor{skillBarBackDrop}{RGB}{100, 100, 100}
+\definecolor{skillBarLevel}{RGB}{50, 130, 190}
+\newcommand{\drawSkills}[1]{
+	\begin{tikzpicture}
+		\foreach [count=\i] \x/\y in {#1}
+		{
+			\draw[fill=skillBarBackDrop,skillBarBackDrop] (0,\i) rectangle (6,\i+0.35);
+			\draw[fill=white,skillBarLevel](0,\i) rectangle (\y,\i+0.35);
+			\node [above right] at (-0.15,\i+0.35) { \changeFontSize{9px} \x};
+		}
+	\end{tikzpicture}
+}
+
+\newcommand{\xPosSkills}[1]{\renewcommand{\xPosSkills}{#1}}
+\xPosSkills{ 0.35 }
+\newcommand{\yPosSkills}[1]{\renewcommand{\yPosSkills}{#1}}
+\yPosSkills{ 7.5 }
+\newcommand{\posSkills}[1]{
+	\begin{textblock}{2}(\xPosSkills, \yPosSkills)
+		\drawSkills{#1}
+	\end{textblock}
+}
+
+\PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+\definecolor{colorSectionBlue}{RGB}{0, 150, 222}
+\def\@colorFirstThreeLettersOfSection#1#2#3{%
+	{%
+		\color{colorSectionBlue} #1#2#3%
+	}%
+}
+
+\definecolor{colorSectionGray}{RGB}{77, 77, 77}
+\newcommand{ \headingfont }[1]{
+	\fontfamily{phv} 
+	\selectfont 
+	\color{#1} 
+}
+
+\newcommand{ \changeFontSize }[1]{
+	\fontsize{#1}{#1 * 1.2} \selectfont
+}
+ 
+\newcommand{\customSection}[1]{
+  	\par\vspace{\parskip}
+	\textbf{%
+		\changeFontSize{22px}%
+		\headingfont{colorSectionGray}% 
+		\@colorFirstThreeLettersOfSection%
+		#1%
+	}
+	\par\vspace{\parskip}
+}
+
+\newcommand{\posCustomSection}[3]{
+	\begin{textblock}{5}(#2, #3)
+		\customSection{#1}
+	\end{textblock}
+}
+
+\newcommand{\xPosCertificates}[1]{\renewcommand{\xPosCertificates}{#1}}
+\xPosCertificates{ 0.15 }
+\newcommand{\yPosCertificates}[1]{\renewcommand{\yPosCertificates}{#1}}
+\yPosCertificates{ 12.45 }
+\newlength\certificatesTableWidth
+\pgfmathsetlength{\certificatesTableWidth}{6.0cm}
+\newlength\certificatesColumnWidthOne
+\pgfmathsetlength{\certificatesColumnWidthOne}{0.05cm}
+\newlength\certificatesColumnWidthTwo
+\pgfmathsetlength{\certificatesColumnWidthTwo}{\certificatesTableWidth - \certificatesColumnWidthOne}
+\newcommand{\certificates}{
+	\begin{textblock}{0}(\xPosCertificates, \yPosCertificates)
+		\begin{tabularx}{\certificatesTableWidth}{m{\certificatesColumnWidthOne}m{\certificatesColumnWidthTwo}}
+			\textbullet{} & \href{https://www.coursera.org/learn/logic-introduction}{Introduction to Logic \newline%
+			by Stanford University \newline%
+			Online course via Coursera.org} \\
+			\\
+			\textbullet{} & English CEFR certificate C1 level \\
+			\\
+			\textbullet{} & Driver licence category B \\
+			\\
+			\textbullet{} & Student status \\
+		\end{tabularx}
+	\end{textblock}
+}
+
+\newtoks\customTableEntries
+
+\newcommand{\addEntries}[1]{
+	\global%
+	\customTableEntries%
+	\expandafter{%
+		\the\customTableEntries#1%
+	}%
+}
+
+\newcommand{\eAddEntries}[1]{
+	\edef%
+	\mytemp{#1}%
+	\expandafter%
+	\addEntries%
+	\expandafter{%
+		\mytemp%
+	}%
+}
+
+\newcommand{\resetEntries}{
+	\global%
+	\customTableEntries{}%
+}
+
+\newcommand{\printEntries}{%
+	\the\customTableEntries%
+}
+
+\newcommand{\appendEntries}[2][]{
+	\if\relax\detokenize{#1}\relax
+		% no index, just append the second argument
+		\global%
+		\customTableEntries%
+		\expandafter{%
+			\the%
+			\customTableEntries%
+			#2%
+		}%
+	\else
+		% we assume the second argument is a one parameter macro
+		\global%
+		\customTableEntries%
+		\expandafter{%
+			\the%
+			\expandafter%
+			\customTableEntries%
+			\expandafter%
+			#2%
+			\expandafter{%
+				#1%
+			}%
+		}%
+	\fi
+}
+
+\newcommand{\customTableEntry}[6]{%
+	\addEntries{\vspace{5px}\changeFontSize{9px}\bf}
+	\eAddEntries{#1}
+	\addEntries{%
+		&%
+		\vspace{5px}\changeFontSize{9px}%
+	}
+	\eAddEntries{#2}
+	\addEntries{%
+		\\%
+		\color{colorSectionGray} \changeFontSize{8px}%
+	}
+	\eAddEntries{#3}
+	\addEntries{%
+		&%
+		\changeFontSize{9px}%
+	}
+	\eAddEntries{#4}
+	\addEntries{%
+		\\%
+		\color{colorSectionGray} \changeFontSize{8px}%
+	}
+	\eAddEntries{#5}
+	\addEntries{%
+		&%
+		\changeFontSize{9px}%
+	}
+	\eAddEntries{#6}
+	\addEntries{%
+		\\%
+	}
+}
+
+\usepackage{tabularx, etoolbox}
+\newlength\customTableWidth
+\pgfmathsetlength{\customTableWidth}{0.6\textwidth}
+\newlength\customColumnWidthOne
+\pgfmathsetlength{\customColumnWidthOne}{0.2\customTableWidth}
+\newlength\customColumnWidthTwo
+\pgfmathsetlength{\customColumnWidthTwo}{\customTableWidth - \customColumnWidthOne}
+
+\newcommand{\createCustomTable}[1]{
+	\resetEntries
+	\foreach [count=\i] \date/\major/\departmentType/\departmentName/\schoolType/\schoolName in {#1}
+	{
+		\customTableEntry{\date}{\major}{\departmentType}{\departmentName}{\schoolType}{\schoolName}
+	}%
+	\begin{tabularx}{\customTableWidth}{m{\customColumnWidthOne}m{\customColumnWidthTwo}}
+		\printEntries
+	\end{tabularx}
+}
+
+\newcommand{\posTable}[3]{
+	\begin{textblock}{5}(#2, #3)
+		\createCustomTable{#1}
+	\end{textblock}
+}
+
+\newcommand{\educationTable}{
+	\posTable{%
+		{%
+			2012 - 2020/%
+			Computer Science/%
+			Faculty of/%
+			Electrical Engineering, Automatics, Computer Science and Biomedical Engineering/%
+			University/%
+			AGH University of Science and Technology%
+      	},%
+      	{%
+			2011 - 2012/%
+			Electronics and Telecommunications/%
+			Faculty of/%
+			Computer Science, Electronics and Telecommunications/%
+			University/%
+			AGH University of Science and Technology%
+		},%
+		{%
+			2008 - 2011/%
+			Mathematics and Computer Science class/%
+			Secondary/%
+			General-Education High School Liceum of the Piarist Fathers/%
+			education/%
+			named after pr. Stanis\l{}aw Konarski in Cracow%
+		}%
+	}{5.6}{0.5}
+}
+
+\newlength\expierienceTableWidth
+\pgfmathsetlength{\expierienceTableWidth}{\customTableWidth}
+\newlength\expierienceColumnWidthOne
+\pgfmathsetlength{\expierienceColumnWidthOne}{\customColumnWidthOne}
+\newlength\expierienceColumnWidthTwo
+\pgfmathsetlength{\expierienceColumnWidthTwo}{\expierienceTableWidth - \expierienceColumnWidthOne}
+\newcommand{\experienceTable}[2]{
+	\begin{textblock}{5}(#1, #2)
+		\begin{tabularx}{\expierienceTableWidth}{m{\expierienceColumnWidthOne}m{\expierienceColumnWidthTwo}}
+			{\changeFontSize{9px}\textbf{2017}}%
+			&%
+			{\changeFontSize{9px} BNP Paribas Bank Polska S.A.}%
+			\\%
+			&%
+			{\changeFontSize{8px}\textbf{Apprenticeship at Project Management department}}%
+			\\%
+			{\color{colorSectionGray} \changeFontSize{8px} Responsibilities}%
+			&%
+			{ \changeFontSize{8px} Organizing meetings with project teams and preparing meetings' raports. }%
+			\\%
+			&%
+			{\changeFontSize{8px} Creating current budget statement for programme consisting of multiple \newline projects.}%
+			\\
+			&%
+			{\changeFontSize{8px} Research, analysis and prepairing summary of the findings on availability and \newline credibility of financial information in databases offered by third party business. }%
+			\\%
+			\vspace{5px}{\changeFontSize{9px}\textbf{2016}}% 
+			& 
+			\vspace{5px}{\changeFontSize{9px} VIA4 S.A. }%
+			\\%
+			&%
+			{\changeFontSize{8px}\textbf{Employee of toll station on motorway}}%
+			\\%
+			{\color{colorSectionGray} \changeFontSize{8px}About company}%
+			&%
+			{\changeFontSize{8px}Operation and maintenance services company of toll section \newline of Katowice-Cracow A4 motorway}%
+		\end{tabularx}
+	\end{textblock}
+}
+
+\newcommand{\linespacing}[1]{\renewcommand{\linespacing}{#1}}
+\linespacing{1.5}
+
+\newcommand{\myGithub}{\raiseGithub\relax}
+\newcommand{\raiseGithub}[1]{\raisebox{-2.0\depth}{\faGithub}}
+
+\newcommand{\projectEntryName}[2]{%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\changeFontSize{14px} %
+	\href{#1}{%
+		\myGithub %
+		\changeFontSize{9px}%
+			\textbf{#2}%
+	}%
+}
+
+\newcommand{\projectEntryTechStack}[1]{%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\changeFontSize{9px}%
+	\foreach \tech [count=\i] in {#1}%
+	{
+		\ifnum\i=1
+			\tech 
+		\else
+			 \textbullet{} \tech%
+		\fi%
+	}%
+}
+
+\newcommand{\projectEntryDesc}[1]{%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\color{colorSectionGray}%
+	\changeFontSize{8px}%
+	#1%
+}
+
+\newcommand{\projectEntryTech}[1]{%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\changeFontSize{8px}%
+	\textbf{#1}%
+}
+
+\newcommand{\projectEntryFunc}[1]{%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\changeFontSize{8px}%
+	#1%
+}
+
+\newcommand{\coloredHref}[2]{%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\href{#1}{\color{colorSectionBlue} #2}
+}
+
+\newlength\projectsTableWidth
+\pgfmathsetlength{\projectsTableWidth}{\expierienceTableWidth}
+\newlength\projectsColumnWidthOne
+\pgfmathsetlength{\projectsColumnWidthOne}{0.2\projectsTableWidth}
+\newlength\projectsColumnWidthTwo
+\pgfmathsetlength{\projectsColumnWidthTwo}{\projectsTableWidth - \projectsColumnWidthOne}
+\newcommand{\projectsTable}[2]{
+	\begin{textblock}{10}(#1, #2)
+		\begin{tabularx}{\projectsTableWidth}{m{\projectsColumnWidthOne}m{\projectsColumnWidthTwo}}
+			\projectEntryName{https://github.com/axal25/JacksChess}{JacksChess} 
+			&
+			\projectEntryTechStack{{Ada},{GtkAda (GTK+) 3.0},{AdaCore GPS},{Windows}}
+			\\
+			\projectEntryDesc{Technology} 
+			&
+			\projectEntryTech{Simple chess game implemented in \textit{Ada} programming language using graphics library \textit{GtkAda (GTK+ 3.0)} for \textit{Windows} platform. Program was written and compiled via \textit{AdaCore's GPS IDE} supplying library \textit{GtkAda}.} 
+			\\
+			\projectEntryDesc{Functionality} 
+			& 
+			\projectEntryFunc{Player vs. Computer game mode. Player always starts the game with white figures. Player chooses from one of visually marked as permitted moves. Computer chooses random move out of pool of permitted moves. Project includes class diagrams.} 
+			\\
+			\vspace{5px}\projectEntryName{https://github.com/axal25/SoapRest}{SoapRest}
+			&
+			\vspace{5px}\projectEntryTechStack{{Java EE},{Wildfly 14.0.1.Final},{Maven},{RestEasy},{Swagger},{IntelliJ}}%
+			\\%
+			\projectEntryDesc{Technology}%
+			&%
+			\projectEntryTech{Project for Service-Oriented Architecture university course. Written in \textit{IntelliJ IDE} for \textit{JBoss Application Server (Wildfly 14.0.1.Final)} using \textit{JavaEE} and \textit{Maven}.}%
+			\\%
+			\projectEntryDesc{Functionality}%
+			&%
+			\projectEntryFunc{%
+				SOAP and REST services. %
+				Example clients testinig both services. %
+				Maven script downloading Swagger and editing index file. %
+				\coloredHref{https://developers.google.com/protocol-buffers/}{Proto3 - Protocol buffer 3 (google)} used in REST service. %
+				Authorization in both services: SOAP - BASIC method + security domain, REST - using token. %
+				Validation of parameters via adnotation in REST service. %
+				Sending Byte64 type objects in both services - NOT as attachment. %
+			}%
+			\\%
+			\changeFontSize{8px}%
+			&%
+			\changeFontSize{8px}\coloredHref{https://github.com/axal25/WildflyLabs}{Project consisting of simple Servlets created in \textit{Eclipse IDE}.}%
+			\\%
+			\vspace{5px}\projectEntryName{https://github.com/axal25/givealift-web}{GiveALift}%
+			&%
+			\vspace{5px}\projectEntryTechStack{{Angular 5}}%
+			\\%
+			\projectEntryDesc{Technology}%
+			&%
+			\projectEntryTech{Student group project imitating functionality of %
+			\coloredHref{https://www.blablacar.pl/}{BlaBlaCar}. %
+			I worked only on %
+			\coloredHref{https://github.com/givealift/web}{front-end part of the project (group repository)}.}%
+			\\%
+			\projectEntryDesc{}%
+			&%
+			\projectEntryFunc{\coloredHref{https://github.com/givealift?tab=repositories}{Link to all repositories of the project}}%
+			\\%			
+		\end{tabularx}
+	\end{textblock}
+}
+
+% #1 - url
+% #2 - X position, 
+% #3 - Y position
+% #4 - X size, 
+% #5 - Y size
+\newcommand{\posHrefArea}[5]{
+	\begin{textblock}{3}(#2, #3)
+		\href{#1}{
+			\drawHrefArea{#4}{#5}	
+		}
+	\end{textblock}
+}
+
+\newcommand{\hrefAreaOpacity}[1]{\renewcommand{\hrefAreaOpacity}{#1}}
+\hrefAreaOpacity{0.5} 
+
+\newcommand{\drawHrefArea}[2]{
+	\begin{tikzpicture}
+		\node[
+			anchor=north west, 
+			rectangle, 
+			draw=black,
+			fill=black!20, 
+			minimum width = #1, 
+			minimum height = #2, 
+			opacity=\hrefAreaOpacity
+		] (box) at (0,0) {};
+	\end{tikzpicture}
+}
+
+\newlength\interestsTableWidth
+\pgfmathsetlength{\interestsTableWidth}{\expierienceTableWidth}
+\newlength\interestsColumnWidthOne
+\pgfmathsetlength{\interestsColumnWidthOne}{0.2\interestsTableWidth}
+\newlength\interestsColumnWidthTwo
+\pgfmathsetlength{\interestsColumnWidthTwo}{\interestsTableWidth - \interestsColumnWidthOne}
+\newlength\hspaceSize
+\pgfmathsetlength{\hspaceSize}{2.25cm}
+\newcommand{\interests}[2]{
+	\changeFontSize{9px}{
+		\begin{textblock}{2}(#1, #2)
+			\begin{tabularx}{\interestsTableWidth}{m{\interestsColumnWidthOne}m{\interestsColumnWidthTwo}}
+				\hspace{\hspaceSize}%
+				\textbullet{} %
+				& %
+				Virtual entertainment, console and computer games industry. %
+				\\%
+				\hspace{\hspaceSize}%
+				\textbullet{} %
+				& %
+				Foreign, international politics. Mainly USA.%
+				\\%
+				\hspace{\hspaceSize}%
+				\textbullet{} %
+				& %
+				Pupular Biology and Science - news and trivia. %
+				\\%
+				\hspace{\hspaceSize}%
+				\textbullet{} %
+				& %
+				Collecting interesting story ideas from books, films, series and games. %
+				\\%
+				\hspace{\hspaceSize}%
+				\textbullet{} %
+				& %
+				Writing short stories. %
+				\\%
+				\hspace{\hspaceSize}%
+				\textbullet{} %
+				& %
+				Drawing by hand. %
+				\\%
+			\end{tabularx}
+		\end{textblock}
+	}
+}
+
+\newlength\footnoteTableWidth
+\pgfmathsetlength{\footnoteTableWidth}{0.99\textwidth}
+\newcommand{\xPosFootnoteTable}[1]{\renewcommand{\xPosFootnoteTable}{#1}}
+\xPosFootnoteTable{-0.1}
+\newcommand{\yPosFootnoteTable}[1]{\renewcommand{\yPosFootnoteTable}{#1}}
+\yPosFootnoteTable{15.15}
+\newcommand{\xPosFootnoteFrame}[1]{\renewcommand{\xPosFootnoteFrame}{#1}}
+\xPosFootnoteFrame{-0.5}
+\newcommand{\yPosFootnoteFrame}[1]{\renewcommand{\yPosFootnoteFrame}{#1}}
+\yPosFootnoteFrame{15.0}
+\newcommand{\permissionFootnote}[1]{
+	\changeFontSize{9px}%
+	\color{colorSectionGray}
+	\begin{textblock}{2}(\xPosFootnoteFrame, \yPosFootnoteFrame)
+		\begin{tikzpicture}
+			\node[
+				anchor=north west, 
+				rectangle, 
+				draw=black,
+				fill=black!10, 
+				minimum width = 21.7cm, 
+				minimum height = 1.6cm, 
+				opacity=1.0
+			] (box) at (0,0) {};
+		\end{tikzpicture}
+	\end{textblock}
+	\begin{textblock}{2}(\xPosFootnoteTable, \yPosFootnoteTable)
+		\begin{tabularx}{\footnoteTableWidth}{m{\footnoteTableWidth}}
+			#1%
+			\\%
+		\end{tabularx}
+	\end{textblock}
+}
+
+\newcommand{\yPosInterestSection}[1]{\renewcommand{\yPosInterestSection}{#1}}
+\yPosInterestSection{ 12.65 } 
+\newcommand{\yPosCertificatesSection}[1]{\renewcommand{\yPosCertificatesSection}{#1}}
+\yPosCertificatesSection{ 255pt } 
+\newlength\projectsHrefAreaWidth
+\pgfmathsetlength{\projectsHrefAreaWidth}{\projectsTableWidth+0.9cm}
+\newcommand{\xPosProjectsHrefArea}[1]{\renewcommand{\xPosProjectsHrefArea}{#1}}
+\xPosProjectsHrefArea{5.55}
+\newcommand{\yPosInterests}[1]{\renewcommand{\yPosInterests}{#1}}
+\yPosInterests{5.55}
+
+\begin{document}
+	\drawSideBar
+	\drawName
+	\posProfilePic{rectanglePhoto.jpg}
+	\posContactInfo
+		
+	%%%	polishVersion
+	\sideBarSection{Skills}{0pt}
+	\posSkills{%
+		{Unix \textbullet{} Github \textbullet{} LaTeX \textbullet{} UI Diagrams/2.0},%
+		{JavaScript \textbullet{} Angular 5 \textbullet{} Node.js/2.0},%
+		{HTML \textbullet{} CSS \textbullet{} Word/2.25},%
+		{Erlang \textbullet{} Prolog \textbullet{} Haskell/2.5},%
+		{C \textbullet{} C++ \textbullet{} Ada \textbullet{} Matlab \textbullet{} Excel/2.75},%
+		{PostgreSQL \textbullet{} JavaEE/3.0},%
+		{Java/4.0}%
+	}
+	\sideBarSection{Certificates}{ \yPosCertificatesSection }
+	\certificates
+	\posCustomSection{Education}{6}{-0.159}
+	\educationTable
+	\posCustomSection{Experience}{6}{3.2}
+	\experienceTable{5.6}{3.9}
+	\posCustomSection{Projects}{6}{6.715}
+	\projectsTable{5.6}{7.45}
+%	\posHrefArea{https://github.com/axal25/JacksChess}{\xPosProjectsHrefArea}{7.2}{\projectsHrefAreaWidth}{3.75cm}
+
+	\posCustomSection{Interests}{6}{ \yPosInterestSection }
+	\interests{5.6}{13.4}
+	\permissionFootnote%
+		{Wyra¿am zgodê na przetwarzanie moich danych osobowych równie¿ na potrzeby przysz³ych rekrutacji, zgodnie z art. 6 ust. 1 lit. a Rozporz±dzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w zwi±zku z przetwarzaniem danych osobowych i w sprawie swobodnego przep³ywu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporz±dzenie o ochronie danych)}
+\end{document}
+
+% \k{a} \'c \k{e} \l{} \'n \'o \'s
+% \'z \.z \k{A} \'C \k{E} \L{} \'N
+% \'O \'S \'Z \.Z

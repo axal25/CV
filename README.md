@@ -1,6 +1,7 @@
 # Curriculum Vitae - Jacek Oleś
 ## Description
-Personal Curriculum Vitae created in LaTeX (pdflatex) based on 2 templates
+Personal Curriculum Vitae created in LaTeX (pdflatex) based on 2 templates.
+Two versions Polish and English.
 ## Sources
 1. [Harsh Gadgil's Data-Engineer-Resume-LaTeX](https://github.com/opensorceror/Data-Engineer-Resume-LaTeX)
 2. [Twenty Seconds Resume/CV](https://www.latextemplates.com/template/twenty-seconds-resumecv)
