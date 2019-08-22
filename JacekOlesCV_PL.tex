@@ -36,7 +36,7 @@
 \newcommand{\xPosName}[1]{\renewcommand{\xPosName}{#1}}
 \xPosName{1.25}
 \newcommand{\yPosName}[1]{\renewcommand{\yPosName}{#1}}
-\yPosName{-0.25}
+\yPosName{-0.475}
 \newcommand{\drawName}{
 	\begin{textblock}{2}(\xPosName, \yPosName)
     	\vspace{3mm} { \Huge \color{nameColor} \cvname }
@@ -79,7 +79,7 @@
 \newcommand{\xPosProfilePic}[1]{\renewcommand{\xPosProfilePic}{#1}}
 \xPosProfilePic{0.65}
 \newcommand{\yPosProfilePic}[1]{\renewcommand{\yPosProfilePic}{#1}}
-\yPosProfilePic{0.7}
+\yPosProfilePic{0.3}
 \newcommand{\posProfilePic}[1]{
 		\begin{textblock}{5}(\xPosProfilePic, \yPosProfilePic)
 			\drawProfilePic{#1}
@@ -214,7 +214,7 @@
 \newcommand{\xPosContactInfo}[1]{\renewcommand{\xPosContactInfo}{#1}}
 \xPosContactInfo{0.0}
 \newcommand{\yPosContactInfo}[1]{\renewcommand{\yPosContactInfo}{#1}}
-\yPosContactInfo{3.4}
+\yPosContactInfo{3.0}
 \newcommand{\numberOfContactInfoCircles}[1]{\renewcommand{\numberOfContactInfoCircles}{#1}}
 \numberOfContactInfoCircles{5}
 \newcommand{\indexOfGithubIcon}[1]{\renewcommand{\indexOfGithubIcon}{#1}}
@@ -258,7 +258,7 @@
 \newcommand{\xPosSideBarSection}[1]{\renewcommand{\xPosSideBarSection}{#1}}
 \xPosSideBarSection{0.275}
 \newcommand{\yPosSideBarSection}[1]{\renewcommand{\yPosSideBarSection}{#1}}
-\yPosSideBarSection{6.9}
+\yPosSideBarSection{6.5}
 \newlength{\sectionRulerLength}
 \newlength{\sectionTitleLength}
 \newcommand{\sideBarSection}[2]{%
@@ -293,7 +293,7 @@
 \newcommand{\xPosSkills}[1]{\renewcommand{\xPosSkills}{#1}}
 \xPosSkills{ 0.35 }
 \newcommand{\yPosSkills}[1]{\renewcommand{\yPosSkills}{#1}}
-\yPosSkills{ 7.5 }
+\yPosSkills{ 7.15 }
 \newcommand{\posSkills}[1]{
 	\begin{textblock}{2}(\xPosSkills, \yPosSkills)
 		\drawSkills{#1}
@@ -322,7 +322,7 @@
 \newcommand{\customSection}[1]{
   	\par\vspace{\parskip}
 	\textbf{%
-		\changeFontSize{22px}%
+		\changeFontSize{18px}%
 		\headingfont{colorSectionGray}% 
 		\@colorFirstThreeLettersOfSection%
 		#1%
@@ -339,7 +339,7 @@
 \newcommand{\xPosCertificates}[1]{\renewcommand{\xPosCertificates}{#1}}
 \xPosCertificates{ 0.15 }
 \newcommand{\yPosCertificates}[1]{\renewcommand{\yPosCertificates}{#1}}
-\yPosCertificates{ 12.45 }
+\yPosCertificates{ 12.15 }
 \newlength\certificatesTableWidth
 \pgfmathsetlength{\certificatesTableWidth}{6.0cm}
 \newlength\certificatesColumnWidthOne
@@ -420,11 +420,11 @@
 }
 
 \newcommand{\customTableEntry}[6]{%
-	\addEntries{\changeFontSize{9px} \bf}
+	\addEntries{\changeFontSize{8px} \bf}
 	\eAddEntries{#1}
 	\addEntries{%
 		&%
-		\changeFontSize{9px}%
+		\changeFontSize{8px}%
 	}
 	\eAddEntries{#2}
 	\addEntries{%
@@ -434,7 +434,7 @@
 	\eAddEntries{#3}
 	\addEntries{%
 		&%
-		\changeFontSize{9px}%
+		\changeFontSize{8px}%
 	}
 	\eAddEntries{#4}
 	\addEntries{%
@@ -444,7 +444,7 @@
 	\eAddEntries{#5}
 	\addEntries{%
 		&%
-		\changeFontSize{9px}%
+		\changeFontSize{8px}%
 	}
 	\eAddEntries{#6}
 	\addEntries{%
@@ -510,7 +510,7 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 			im. ks. Stanis\l{}awa Konarskiego w Krakowie%
 %			\href{https://liceum.pijarzy.pl/}{im. ks. Stanis\l{}awa Konarskiego w Krakowie}%
 		}%
-	}{5.6}{0.6}
+	}{5.6}{0.25}
 }
 
 \newlength\expierienceTableWidth
@@ -522,8 +522,8 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 \newcommand{\experienceTable}[2]{
 	\begin{textblock}{5}(#1, #2)
 		\begin{tabularx}{\expierienceTableWidth}{m{\expierienceColumnWidthOne}m{\expierienceColumnWidthTwo}}
-			{ \changeFontSize{9px} \textbf{2017} } &
-			{ \changeFontSize{9px} BNP Paribas Bank Polska S.A. } \\
+			{ \changeFontSize{8px} \textbf{2017} } &
+			{ \changeFontSize{8px} BNP Paribas Bank Polska S.A. } \\
 			& 
 			{ \changeFontSize{8px} \textbf{Praktykant w zespole Zarz±dzania Projektami} } \\
 			{ \color{colorSectionGray} \changeFontSize{8px} Obowi\k{a}zki } &
@@ -531,10 +531,10 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 			& 
 			{ \changeFontSize{8px} Przygotowanie aktualnego zestawienia bud\.zetowego grupy projekt\'ow. } \\
 			& 
-			{ \changeFontSize{8px} Przygotowanie zestawienia i analiza dostêpno\'sci i wiarygodnosci informacji w bazach danych oferowanych przez zewn\k{e}trzne firmy. } \\
+			{ \changeFontSize{8px} Przygotowanie zestawienia i analiza dostêpno\'sci i wiarygodnosci informacji w bazach danych oferowanych przez zewn\k{e}trzne firmy. }
 			\\
-			{ \changeFontSize{9px} \textbf{2016} } & 
-			{ \changeFontSize{9px} VIA4 S.A. - Punkt poboru op³at na autostradzie A4 w Balicach. } \\
+			{\vspace{4px} \changeFontSize{8px} \textbf{2016} } & 
+			{\vspace{4px} \changeFontSize{8px} VIA4 S.A. - Punkt poboru op³at na autostradzie A4 w Balicach. } \\
 			& {\changeFontSize{8px}\textbf{Pracownik punktu poboru op\l{}at na autostradzie}}			
 		\end{tabularx}
 	\end{textblock}
@@ -547,6 +547,7 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 \newcommand{\raiseGithub}[1]{\raisebox{-2.0\depth}{\faGithub}}
 
 \newcommand{\projectEntryName}[2]{%
+	\vspace{4px}%
 	\renewcommand{\baselinestretch}{\linespacing}%
 	\changeFontSize{14px} %
 	\href{#1}{%
@@ -557,8 +558,9 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 }
 
 \newcommand{\projectEntryTechStack}[1]{%
+	\vspace{4px}%
 	\renewcommand{\baselinestretch}{\linespacing}%
-	\changeFontSize{9px}%
+	\changeFontSize{8px}%
 	\foreach \tech [count=\i] in {#1}%
 	{
 		\ifnum\i=1
@@ -590,7 +592,7 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 
 \newcommand{\coloredHref}[2]{%
 	\renewcommand{\baselinestretch}{\linespacing}%
-	\href{#1}{\color{colorSectionBlue} #2}
+	\href{#1}{\color{colorSectionBlue} #2}%
 }
 
 \newlength\projectsTableWidth
@@ -613,7 +615,6 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 			\projectEntryDesc{Opis \newline funkcjonalno\'sci} 
 			& 
 			\projectEntryFunc{Mo\.zliwo\'s\'c rozgrywki dla jednego gracza przeciwko komputerowi. Gracz zawsze gra bia³ymi figurami. Gracz wybiera jeden z wizualnie zaznaczonych, dozwolonych ruch\'ow. Komputer wykonuje losowy ruch (wybiera jeden z dozwolonych ruch\'ow). Przygotowane s\k{a} r\'ownie\.z diagramy klas.} 
-			\\
 			\\
 			\projectEntryName{https://github.com/axal25/SoapRest}{SoapRest}
 			&
@@ -638,8 +639,7 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 			\\%
 			\changeFontSize{8px}%
 			&
-			\changeFontSize{8px}\coloredHref{https://github.com/axal25/WildflyLabs}{Projekt z prostymi Servlet'ami wykonany w \'srodowisku Eclipse.} 
-			\\
+			\changeFontSize{8px}\coloredHref{https://github.com/axal25/WildflyLabs}{Projekt z Servlet'ami wykonany w \'srodowisku Eclipse.}
 			\\
 			\projectEntryName{https://github.com/axal25/givealift-web}{GiveALift}
 			&
@@ -652,6 +652,22 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 			\projectEntryDesc{} 
 			&
 			\projectEntryFunc{ \coloredHref{https://github.com/givealift?tab=repositories}{Link do zbioru wszystkich repozytori\'ow projektu}}
+			\\
+			\projectEntryName{https://github.com/axal25/BareJS}{BareJS}
+			&
+			\projectEntryTechStack{{JavaScript (ECMA 6), HTML, CSS}}
+			\\
+			\projectEntryDesc{Opis techniczny}
+			&
+			\projectEntryTech{Projekt przedstawiaj\k{a}cy funkcjonalno\'sci JavaScript, CSS, HTML z mo\.zliwo\'sci\k{a} testowania na \coloredHref{https://axal25.github.io/BareJS/}{GitHub Pages}.}
+			\\
+			\projectEntryName{https://github.com/axal25/JavaLaboratories}{JavaLabs}
+			&
+			\projectEntryTechStack{{Java 11}}
+			\\
+			\projectEntryDesc{Opis techniczny}
+			&
+			\projectEntryTech{Projekt oparty o laboratoria Javy rozwijany o dodatkowe funkcjonalo\'sci.}
 			\\
 			
 		\end{tabularx}
@@ -770,7 +786,7 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 }
 
 \newcommand{\yPosInterestSection}[1]{\renewcommand{\yPosInterestSection}{#1}}
-\yPosInterestSection{ 13.25 } 
+\yPosInterestSection{ 13.35 } 
 \newcommand{\yPosCertificatesSection}[1]{\renewcommand{\yPosCertificatesSection}{#1}}
 \yPosCertificatesSection{ 255pt } 
 \newlength\projectsHrefAreaWidth
@@ -799,13 +815,12 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 	}
 	\sideBarSection{Certyfikaty}{ \yPosCertificatesSection }
 	\certificates
-	\posCustomSection{Edukacja}{6}{-0.159}
+	\posCustomSection{Edukacja}{6}{-0.33}
 	\educationTable
-	\posCustomSection{Do{\'s}wiadczenie}{6}{3.349}
-	\experienceTable{5.6}{4.1}
-	\posCustomSection{Projekty}{6}{6.349}
-	\projectsTable{5.6}{7.25}
-%	\posHrefArea{https://github.com/axal25/JacksChess}{\xPosProjectsHrefArea}{7.2}{\projectsHrefAreaWidth}{3.75cm}
+	\posCustomSection{Do{\'s}wiadczenie}{6}{2.949}
+	\experienceTable{5.6}{3.6}
+	\posCustomSection{Projekty}{6}{5.749}
+	\projectsTable{5.6}{6.35}
 
 	\sideBarSection{Certyfikaty}{ \yPosCertificatesSection }
 	\posCustomSection{Zainteresowania}{6}{ \yPosInterestSection }
