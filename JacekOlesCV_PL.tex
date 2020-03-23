@@ -5,12 +5,41 @@
 \title{CV}
 \date{01.07.2019}
 
-\usepackage[polish]{babel} 
+\usepackage[english,polish]{babel}
+\usepackage{polski}
 \usepackage[T1]{fontenc}
-\usepackage[latin2]{inputenc} 
+% \usepackage[latin2]{inputenc} 
+\usepackage[utf8]{inputenc}
 \selectlanguage{polish}
 \usepackage[sfdefault]{ClearSans}
 \usepackage[margin=0pt]{geometry}
+
+\usepackage{csquotes}
+\DeclareQuoteAlias{croatian}{polish}
+
+\usepackage{listings}
+\lstset{language=TeX}
+
+\lstset{%
+	literate={ą}{{\k{a}}}1
+	{ć}{{\'c}}1
+	{ę}{{\k{e}}}1
+	{ó}{{\'o}}1
+	{ń}{{\'n}}1
+	{ł}{{\l{}}}1
+	{ś}{{\'s}}1
+	{ź}{{\'z}}1
+	{ż}{{\.z}}1
+	{Ą}{{\k{A}}}1
+	{Ć}{{\'C}}1
+	{Ę}{{\k{E}}}1
+	{Ó}{{\'O}}1
+	{Ń}{{\'N}}1
+	{Ł}{{\L{}}}1
+	{Ś}{{\'S}}1
+	{Ź}{{\'Z}}1
+	{Ż}{{\.Z}}1
+}
 
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
@@ -36,7 +65,7 @@
 \newcommand{\xPosName}[1]{\renewcommand{\xPosName}{#1}}
 \xPosName{1.25}
 \newcommand{\yPosName}[1]{\renewcommand{\yPosName}{#1}}
-\yPosName{-0.475}
+\yPosName{-0.375}
 \newcommand{\drawName}{
 	\begin{textblock}{2}(\xPosName, \yPosName)
     	\vspace{3mm} { \Huge \color{nameColor} \cvname }
@@ -79,7 +108,7 @@
 \newcommand{\xPosProfilePic}[1]{\renewcommand{\xPosProfilePic}{#1}}
 \xPosProfilePic{0.65}
 \newcommand{\yPosProfilePic}[1]{\renewcommand{\yPosProfilePic}{#1}}
-\yPosProfilePic{0.3}
+\yPosProfilePic{0.4}
 \newcommand{\posProfilePic}[1]{
 		\begin{textblock}{5}(\xPosProfilePic, \yPosProfilePic)
 			\drawProfilePic{#1}
@@ -97,10 +126,10 @@
 \definecolor{linkedinIconColor}{RGB}{0, 97, 146}
 \definecolor{githubIconColor}{RGB}{33, 31, 31}
 \def \cvnumberphone {693534913}
-\def \cvlocation {Polska, Krak\'ow}
+\def \cvlocation {Polska, Kraków}
 \def \cvsite {www.jacek.oles.pl}
-\def \cvmail {jacek.oles92@gmail.com}
-\def \cvlinkedin {linkedin.com/in/jacek-oles-920625}
+\def \cvmail {jacek.oles0925@gmail.com}
+\def \cvlinkedin {linkedin.com/in/jacek-oles-0925}
 \def \cvgithub {github.com/axal25}
 % \documentclass[hidelinks ... ]{ ... }
 \newcommand{\contactInfoVSpaceOne}[1]{\renewcommand{\contactInfoVSpaceOne}{#1}}
@@ -219,6 +248,10 @@
 \numberOfContactInfoCircles{5}
 \newcommand{\indexOfGithubIcon}[1]{\renewcommand{\indexOfGithubIcon}{#1}}
 \indexOfGithubIcon{4}
+\newcommand{\indexOfMailIcon}[1]{\renewcommand{\indexOfMailIcon}{#1}}
+\indexOfMailIcon{2}
+\newcommand{\indexOfLinkedInIcon}[1]{\renewcommand{\indexOfLinkedInIcon}{#1}}
+\indexOfLinkedInIcon{3}
 \newlength\currentYOffset
 \pgfmathsetlength{\currentYOffset}{0}
 \definecolor{iconBackDropColor}{RGB}{255,255,255}
@@ -231,9 +264,17 @@
 		{\value{currentNumberOfCircle} < \numberOfContactInfoCircles}
 		{
 			\ifnum \value{currentNumberOfCircle} = \indexOfGithubIcon
-				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} - 1)*34.25+33.25}
+				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} - 1)*34.25 + 4}
 			\else
-				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} )*34.25}
+				\ifnum \value{currentNumberOfCircle} = \indexOfMailIcon
+    				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} - 1)*34.25 + 2.5}
+    			\else
+    				\ifnum \value{currentNumberOfCircle} = \indexOfLinkedInIcon
+        				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} - 1)*34.25 + 2.5}
+        			\else
+        				\pgfmathsetlength{\currentYOffset}{(\value{currentNumberOfCircle} -1)*34.25}
+        			\fi
+    			\fi
 			\fi
 			\node [ 
    				circle, 
@@ -242,7 +283,7 @@
 				inner sep = 10pt, 
 				outer sep = 7pt
 			] at 
-			(\xPosContactInfo +0.3125, \yPosContactInfo +78.5pt - \currentYOffset) 
+			(\xPosContactInfo +0.3125, \yPosContactInfo +51.0pt - \currentYOffset) 
 			{ };	
 		}
 	\end{tikzpicture}
@@ -336,10 +377,26 @@
 	\end{textblock}
 }
 
+\newcommand{\projectHyperLinkInformation}[1]{
+  	\par\vspace{\parskip}
+		\changeFontSize{8px}%
+		\headingfont{colorSectionGray}% 
+		\textbf{%
+		#1%
+		}%
+	\par\vspace{\parskip}
+}
+
+\newcommand{\posProjectHyperLinkInformation}[3]{
+	\begin{textblock}{7}(#2, #3)
+		\projectHyperLinkInformation{#1}
+	\end{textblock}
+}
+
 \newcommand{\xPosCertificates}[1]{\renewcommand{\xPosCertificates}{#1}}
 \xPosCertificates{ 0.15 }
 \newcommand{\yPosCertificates}[1]{\renewcommand{\yPosCertificates}{#1}}
-\yPosCertificates{ 12.15 }
+\yPosCertificates{ 12.35 }
 \newlength\certificatesTableWidth
 \pgfmathsetlength{\certificatesTableWidth}{6.0cm}
 \newlength\certificatesColumnWidthOne
@@ -349,16 +406,13 @@
 \newcommand{\certificates}{
 	\begin{textblock}{0}(\xPosCertificates, \yPosCertificates)
 		\begin{tabularx}{\certificatesTableWidth}{m{\certificatesColumnWidthOne}m{\certificatesColumnWidthTwo}}
+		    \textbullet{} & Tytuł inżyniera Informatyki \\
+			\\
+			\textbullet{} & Certyfikat CEFR na poziomie C1\newline z języka angielskiego\\
+		    \\
 			\textbullet{} & \href{https://www.coursera.org/learn/logic-introduction}{Introduction to Logic \newline%
-			by Stanford University \newline%
-			Online course via Coursera.org} \\
-			\\
-			\textbullet{} & Certyfikat CEFR na poziomie C1 \newline%
-			z j\k{e}zyka angielskiego \\
-			\\
-			\textbullet{} & Prawo jazdy kategorii B \\
-			\\
-			\textbullet{} & Status studenta \\
+			Stanford University \newline%
+			Kurs online przez Coursera.org} \\
 		\end{tabularx}
 	\end{textblock}
 }
@@ -420,11 +474,11 @@
 }
 
 \newcommand{\customTableEntry}[6]{%
-	\addEntries{\changeFontSize{8px} \bf}
+	\addEntries{\vspace{5px}\changeFontSize{8px}\bf}
 	\eAddEntries{#1}
 	\addEntries{%
 		&%
-		\changeFontSize{8px}%
+		\vspace{5px}\changeFontSize{8px}%
 	}
 	\eAddEntries{#2}
 	\addEntries{%
@@ -434,7 +488,7 @@
 	\eAddEntries{#3}
 	\addEntries{%
 		&%
-		\changeFontSize{8px}%
+		\changeFontSize{9px}%
 	}
 	\eAddEntries{#4}
 	\addEntries{%
@@ -449,7 +503,6 @@
 	\eAddEntries{#6}
 	\addEntries{%
 		\\%
-		\\%
 	}
 }
 
@@ -457,7 +510,7 @@
 \newlength\customTableWidth
 \pgfmathsetlength{\customTableWidth}{0.6\textwidth}
 \newlength\customColumnWidthOne
-\pgfmathsetlength{\customColumnWidthOne}{0.2\customTableWidth}
+\pgfmathsetlength{\customColumnWidthOne}{0.1\customTableWidth}
 \newlength\customColumnWidthTwo
 \pgfmathsetlength{\customColumnWidthTwo}{\customTableWidth - \customColumnWidthOne}
 
@@ -481,35 +534,13 @@
 \newcommand{\educationTable}{
 	\posTable{%
 		{%
-			2012 - 2020/%
+			2020/%
 			Informatyka/%
-			Wydzia\l{}/%
-Elektrotechniki, Automatyki, Informatyki i In\.zynierii Biomedycznej/%
-%      		\href{https://www.eaiib.agh.edu.pl/}{Elektrotechniki, Automatyki, Informatyki i In\.zynierii Biomedycznej}/%
+			Wydział/%
+			Elektrotechniki, Automatyki, Informatyki i Inżynierii Biomedycznej/%
 			Uczelnia/%
-Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
-%      		\href{https://www.agh.edu.pl/}{Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie}%
-      	},%
-      	{%
-			2011 - 2012/%
-			Elektronika i Telekomunikacja/%
-			Wydzia\l{}/%
-			Informatyki, Elektroniki i Telekomunikacji/%
-%       	\href{http://www.iet.agh.edu.pl}{Informatyki, Elektroniki i Telekomunikacji}/%
-			Uczelnia/%
-			Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
-%   		\href{https://www.agh.edu.pl/}{Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie}%
-		},%
-		{%
-			2008 - 2011/%
-			Klasa o profilu matematyczno-informatycznym/%
-			Szko\l{}a/%
-			Liceum Og\'olnokszta\l{}c\k{a}ce Zakonu Pijar\'ow/%
-%      		\href{https://liceum.pijarzy.pl/}{Liceum Og\'olnokszta\l{}c\k{a}ce Zakonu Pijar\'ow}/%
-			\'srednia/%
-			im. ks. Stanis\l{}awa Konarskiego w Krakowie%
-%			\href{https://liceum.pijarzy.pl/}{im. ks. Stanis\l{}awa Konarskiego w Krakowie}%
-		}%
+			Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie%
+      	}%
 	}{5.6}{0.25}
 }
 
@@ -522,20 +553,23 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 \newcommand{\experienceTable}[2]{
 	\begin{textblock}{5}(#1, #2)
 		\begin{tabularx}{\expierienceTableWidth}{m{\expierienceColumnWidthOne}m{\expierienceColumnWidthTwo}}
-			{ \changeFontSize{8px} \textbf{2017} } &
-			{ \changeFontSize{8px} BNP Paribas Bank Polska S.A. } \\
-			& 
-			{ \changeFontSize{8px} \textbf{Praktykant w zespole Zarz�dzania Projektami} } \\
-			{ \color{colorSectionGray} \changeFontSize{8px} Obowi\k{a}zki } &
-			{ \changeFontSize{8px} Spotkania z zespo�ami projektowymi oraz przygotowanie raport\'ow. } \\
-			& 
-			{ \changeFontSize{8px} Przygotowanie aktualnego zestawienia bud\.zetowego grupy projekt\'ow. } \\
-			& 
-			{ \changeFontSize{8px} Przygotowanie zestawienia i analiza dost�pno\'sci i wiarygodnosci informacji w bazach danych oferowanych przez zewn\k{e}trzne firmy. }
+			{\changeFontSize{8px}\textbf{2017}}%
+			&%
+			{\changeFontSize{8px} BNP Paribas Bank Polska S.A.}%
+			\\%
+			&%
+			{\changeFontSize{8px}\textbf{Praktykant w zespole Zarządzania Projektami}}%
+			\\%
+			{\color{colorSectionGray} \changeFontSize{8px} Obowiązki}%
+			&%
+			{ \changeFontSize{8px} Organizacja spotkań z zespołami projektowymi oraz przygotowywanie raportów}%
+			\\%
+			&{ \changeFontSize{8px} podsumowujących spotkania.}\\%
+			&%
+			{\changeFontSize{8px} Przygotowanie aktualnego zestawienia budżetowego grupy projektów.}%
 			\\
-			{\vspace{4px} \changeFontSize{8px} \textbf{2016} } & 
-			{\vspace{4px} \changeFontSize{8px} VIA4 S.A. - Punkt poboru op�at na autostradzie A4 w Balicach. } \\
-			& {\changeFontSize{8px}\textbf{Pracownik punktu poboru op\l{}at na autostradzie}}			
+			&%
+			{\changeFontSize{8px} Przygotowanie zestawienia, analiza dostępności i wiarygodności informacji w oferowanych bazach danych przez zewnętrzne firmy.}%
 		\end{tabularx}
 	\end{textblock}
 }
@@ -551,16 +585,14 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 	\renewcommand{\baselinestretch}{\linespacing}%
 	\changeFontSize{14px} %
 	\href{#1}{%
-		\myGithub %
-		\changeFontSize{9px}%
-			\textbf{#2}%
+		\myGithub\changeFontSize{9px}\hspace*{-0.15cm}\textbf{#2}%
 	}%
 }
 
 \newcommand{\projectEntryTechStack}[1]{%
 	\vspace{4px}%
 	\renewcommand{\baselinestretch}{\linespacing}%
-	\changeFontSize{8px}%
+	\changeFontSize{9px}%
 	\foreach \tech [count=\i] in {#1}%
 	{
 		\ifnum\i=1
@@ -596,80 +628,31 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 }
 
 \newlength\projectsTableWidth
-\pgfmathsetlength{\projectsTableWidth}{\expierienceTableWidth}
-\newlength\projectsColumnWidthOne
-\pgfmathsetlength{\projectsColumnWidthOne}{0.2\projectsTableWidth}
-\newlength\projectsColumnWidthTwo
-\pgfmathsetlength{\projectsColumnWidthTwo}{\projectsTableWidth - \projectsColumnWidthOne}
+\pgfmathsetlength{\projectsTableWidth}{0.63\textwidth}
 \newcommand{\projectsTable}[2]{
 	\begin{textblock}{10}(#1, #2)
-		\begin{tabularx}{\projectsTableWidth}{m{\projectsColumnWidthOne}m{\projectsColumnWidthTwo}}
-			\projectEntryName{https://github.com/axal25/JacksChess}{JacksChess} 
-			&
-			\projectEntryTechStack{{Ada},{GtkAda (GTK+) 3.0},{AdaCore GPS},{Windows}}
-			\\
-			\projectEntryDesc{Opis techniczny} 
-			&
-			\projectEntryTech{Prosta gra szach�w w j\k{e}zyku \textit{Ada} z u\.zyciem graficznej biblioteki \textit{GtkAda (GTK+ 3.0)} na platform\k{e} \textit{Windows}. Program pisany i kompilowany przez \'srodowisko \textit{AdaCore GPS} dostarczaj\k{a}cy bibliotek\k{e} \textit{GtkAda}.} 
-			\\
-			\projectEntryDesc{Opis \newline funkcjonalno\'sci} 
-			& 
-			\projectEntryFunc{Mo\.zliwo\'s\'c rozgrywki dla jednego gracza przeciwko komputerowi. Gracz zawsze gra bia�ymi figurami. Gracz wybiera jeden z wizualnie zaznaczonych, dozwolonych ruch\'ow. Komputer wykonuje losowy ruch (wybiera jeden z dozwolonych ruch\'ow). Przygotowane s\k{a} r\'ownie\.z diagramy klas.} 
-			\\
-			\projectEntryName{https://github.com/axal25/SoapRest}{SoapRest}
-			&
-			\projectEntryTechStack{{Java EE},{Wildfly 14.0.1.Final},{Maven},{RestEasy},{Swagger},{IntelliJ}}
-			\\
-			\projectEntryDesc{Opis techniczny}
-			&
-			\projectEntryTech{Projekt na potrzeby laboratori\'ow z Service-Oriented Architecture. Przygotowany w \'srodowisku \textit{IntelliJ} na serwer \textit{(JBoss Application Server) Wildfly 14.0.1.Final} w technologii \textit{JavaEE}.}
-			\\
-			\projectEntryDesc{Opis \newline funkcjonalno\'sci}
-			&
-			\projectEntryFunc{%
-				Service SOAP'owy oraz REST'owy. %
-				Klienci testuj\k{a}cy us\l{}ugi. %
-				Automatyczne za\l{}\k{a}czanie Swagger'a oraz edycja pliku index'owego z wykorzystaniem Maven'a. %
-				W us\l{}udze REST'owej wykorzystanie technologii %
-				\coloredHref{https://developers.google.com/protocol-buffers/}{Proto3 - Protocol buffer 3 (google)}. %
-				Autoryzacja w us�ugach SOAP (metod\k{a} BASIC + security domain) i REST (przez token). %
-				Walidacja parametr\'ow (adnotacje) w us\l{}udze REST. %
-				Przesy\l{}anie zakodowanych obiekt\'ow typu Byte64 (nie jako za\l{}\k{a}czniki). %
-			}%
-			\\%
-			\changeFontSize{8px}%
-			&
-			\changeFontSize{8px}\coloredHref{https://github.com/axal25/WildflyLabs}{Projekt z Servlet'ami wykonany w \'srodowisku Eclipse.}
-			\\
-			\projectEntryName{https://github.com/axal25/givealift-web}{GiveALift}
-			&
-			\projectEntryTechStack{{Angular 5}}
-			\\
-			\projectEntryDesc{Opis techniczny}
-			&
-			\projectEntryTech{Projekt na\'sladuj\k{a}cy funkcjonalno\'s\'c \coloredHref{https://www.blablacar.pl/}{BlaBlaCar}. Pracowa\l{}em tylko nad cz\k{e}\'sci\k{a} \coloredHref{https://github.com/givealift/web}{front-end'ow\k{a} (grupowe repozytorium)}.}
-			\\
-			\projectEntryDesc{} 
-			&
-			\projectEntryFunc{ \coloredHref{https://github.com/givealift?tab=repositories}{Link do zbioru wszystkich repozytori\'ow projektu}}
-			\\
-			\projectEntryName{https://github.com/axal25/BareJS}{BareJS}
-			&
-			\projectEntryTechStack{{JavaScript (ECMA 6), HTML, CSS}}
-			\\
-			\projectEntryDesc{Opis techniczny}
-			&
-			\projectEntryTech{Projekt przedstawiaj\k{a}cy funkcjonalno\'sci JavaScript, CSS, HTML z mo\.zliwo\'sci\k{a} testowania na \coloredHref{https://axal25.github.io/BareJS/}{GitHub Pages}.}
-			\\
-			\projectEntryName{https://github.com/axal25/JavaLaboratories}{JavaLabs}
-			&
-			\projectEntryTechStack{{Java 11}}
-			\\
-			\projectEntryDesc{Opis techniczny}
-			&
-			\projectEntryTech{Projekt oparty o laboratoria Javy rozwijany o dodatkowe funkcjonalo\'sci.}
-			\\
-			
+		\begin{tabularx}{\projectsTableWidth}{m{\projectsTableWidth}}
+		    \projectEntryName{https://github.com/axal25/JavaLaboratoriesGUI}{JavaLaboratoriesGUI}\\%
+		    \projectEntryTechStack{{JFoenix}, {JavaFX}, {Maven}, {Java}}\\%
+		    \projectEntryTech{Projekt uczący podstawowych konceptów języka \emph{Java}. Wizualizacja wykorzystuje bibliotekę \emph{JavaFX} przedstawiając problemy rozwiązane w projekcie \coloredHref{https://github.com/axal25/JavaLaboratories}{JavaLaboratories}.}\\%
+		    \projectEntryName{https://github.com/axal25/TrieTreeImplementations}{TrieTreeImplementations}\\%
+		    \projectEntryTechStack{{FXGraph}, {JavaFX}, {Maven}, {Java}, {LaTeX}}\\%
+		    \projectEntryTech{Program projektu inżynierskiego zawierający implementację drzewa Patricia w zgodności ze ``Sztuką Programowania`` Donalda Knuth'a, dodatkowe funkcjonalności oraz wizualizację struktury drzewa.}\\%
+		    \projectEntryName{https://github.com/axal25/SecureApplicationPractices}{SecureApplicationPractices}\\%
+		    \projectEntryTechStack{{Docker}, {PostgreSQL}, {Spring}, {Android (Java)}, {Gradle}, {Java}, {Maven}, {LaTeX}}\\%
+		    \projectEntryTech{Projekt składa się z 3 części: back-end (\emph{Java Spring REST} + \emph{PostgreSQL}), aplikacja \emph{Android}a, front-end (\emph{Vue.js}). Część back-end'owa jest w pełni mojego autorstwa. Aplikacja \emph{Android}owa jest w większości zaimplementowana przeze mnie. Projekt przedstawia różnice między zabezpieczonymi i narażonymi na złośliwe ataki usługami \emph{REST}. Zawiera on przykłady niezabezpieczonych usług na różnych warstwach \newline - części na poziomie bazy danych, innych w samej usłudze \emph{REST}.}\\%
+		    \projectEntryName{https://github.com/axal25/WeatherForecastApp_Swift_iOS}{WeatherForecastApp\textunderscore Swift\textunderscore iOS}\\%
+		    \projectEntryTechStack{{Swift (iOS \textbullet{} Storyboard)}}\\%
+		    \projectEntryTech{Aplikacja prognozy pogody na iOS wykonana w \emph{Swift}'cie przy użyciu \emph{Storyboard}a wykorzystująca \newline\coloredHref{https://www.metaweather.com/api/}{MetaWeather API}.}\\%
+			\projectEntryName{https://github.com/axal25/BareJS}{BareJS}\\%
+			\projectEntryTechStack{{JavaScript (ECMA 6)}, {HTML}, {CSS}}\\%
+			\projectEntryTech{Projekt przedstawia funkcjonalności \emph{JavaScript}, \emph{CSS}, \emph{HTML} w wersji live na \coloredHref{https://axal25.github.io/BareJS/}{GitHub Pages}.}\\%
+			\projectEntryName{https://github.com/axal25/SoapRest}{SoapRest}\\%
+			\projectEntryTechStack{{Java},{Wildfly},{Maven},{RestEasy},{Swagger},{Protocol Buffer 3 (Google)}}\\%
+			\projectEntryTech{Projekt wykonany na zajęcia uczelniane SOA (Service-Oriented Architecture). Zawiera usługi oraz aplikacje klienckie \emph{SOAP} i \emph{REST} dla \emph{JBoss Application Server (Wildfly 14.0.1.Final)} w języku programowania \emph{Java} z pomocą \emph{Maven}a. Usługa \emph{REST} zawiera użycie \coloredHref{https://developers.google.com/protocol-buffers/}{Protocol buffer 3 (google)}. Usługa \emph{SOAP} posiada autoryzację \emph{BASIC}, a usługa \emph{REST} autoryzację tokenową. Obie usługi pozwalają na przesyłanie obiektów typu \emph{Byte64}.}\\%
+			\projectEntryName{https://github.com/axal25/JacksChess}{JacksChess}\\%
+			\projectEntryTechStack{{Ada},{GtkAda (GTK+) 3.0},{AdaCore GPS},{Windows}}\\%
+			\projectEntryTech{Gra szachów zaimplementowana w języku programowania \emph{Ada} przy użyciu graficznej biblioteki \textit{GtkAda (GTK+ 3.0)} na \textit{Windows}a. Program został napisany i skompilowany przy użyciu \textit{AdaCore GPS IDE}, który załączał bibliotekę\textit{GtkAda}.}\\%
 		\end{tabularx}
 	\end{textblock}
 }
@@ -705,13 +688,13 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 }
 
 \newlength\interestsTableWidth
-\pgfmathsetlength{\interestsTableWidth}{\expierienceTableWidth}
+\pgfmathsetlength{\interestsTableWidth}{\customTableWidth}
 \newlength\interestsColumnWidthOne
-\pgfmathsetlength{\interestsColumnWidthOne}{0.2\interestsTableWidth}
+\pgfmathsetlength{\interestsColumnWidthOne}{\customColumnWidthOne}
 \newlength\interestsColumnWidthTwo
 \pgfmathsetlength{\interestsColumnWidthTwo}{\interestsTableWidth - \interestsColumnWidthOne}
 \newlength\hspaceSize
-\pgfmathsetlength{\hspaceSize}{2.25cm}
+\pgfmathsetlength{\hspaceSize}{1.1cm}
 \newcommand{\interests}[2]{
 	\changeFontSize{9px}{
 		\begin{textblock}{2}(#1, #2)
@@ -719,32 +702,32 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 				\hspace{\hspaceSize}%
 				\textbullet{} %
 				& %
-				Przemys\l{} wirtualnej rozrywki, gier komputerowych i konsolowych. %
+				Przemysł rozrywki wirtualnej, gier komputerowych oraz konsolowych.%
 				\\%
 				\hspace{\hspaceSize}%
 				\textbullet{} %
 				& %
-				Polityka zagraniczna, mi\k{e}dzynarodowa, g\l{}\'ownie USA. %
+				Polityka zagraniczna oraz inne wiadomości z za granicy, głownie z USA.%
 				\\%
 				\hspace{\hspaceSize}%
 				\textbullet{} %
 				& %
-				Biologia popularna, ciekawostki i nowinki naukowe. %
+				Ciekawostki oraz nowinki naukowe ze świata biologii i fizyki.%
 				\\%
 				\hspace{\hspaceSize}%
 				\textbullet{} %
 				& %
-				Poznawanie interesuj\k{a}cych historii z ksi\k{a}\.zek, film\'ow, seriali oraz gier. %
+				``Gromadzenie`` interesujących historii z książek, filmów, seriali oraz gier. %
 				\\%
 				\hspace{\hspaceSize}%
 				\textbullet{} %
 				& %
-				Pisanie opowiada\'n. %
+				Pisanie krótkich opowiadań. %
 				\\%
 				\hspace{\hspaceSize}%
 				\textbullet{} %
 				& %
-				Rysowanie. %
+				Ilustracja i animacja. %
 				\\%
 			\end{tabularx}
 		\end{textblock}
@@ -753,14 +736,14 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 
 \newlength\footnoteTableWidth
 \pgfmathsetlength{\footnoteTableWidth}{0.99\textwidth}
-\newcommand{\xPosFootnoteTable}[1]{\renewcommand{\xPosFootnoteTable}{#1}}
-\xPosFootnoteTable{-0.1}
-\newcommand{\yPosFootnoteTable}[1]{\renewcommand{\yPosFootnoteTable}{#1}}
-\yPosFootnoteTable{15.25}
 \newcommand{\xPosFootnoteFrame}[1]{\renewcommand{\xPosFootnoteFrame}{#1}}
 \xPosFootnoteFrame{-0.5}
 \newcommand{\yPosFootnoteFrame}[1]{\renewcommand{\yPosFootnoteFrame}{#1}}
-\yPosFootnoteFrame{15.2}
+\yPosFootnoteFrame{14.95}
+\newcommand{\xPosFootnoteTable}[1]{\renewcommand{\xPosFootnoteTable}{#1}}
+\xPosFootnoteTable{-0.1}
+\newcommand{\yPosFootnoteTable}[1]{\renewcommand{\yPosFootnoteTable}{#1}}
+\yPosFootnoteTable{15.05}
 \newcommand{\permissionFootnote}[1]{
 	\changeFontSize{9px}%
 	\color{colorSectionGray}
@@ -772,7 +755,7 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 				draw=black,
 				fill=black!10, 
 				minimum width = 21.7cm, 
-				minimum height = 1.1cm, 
+				minimum height = 1.6cm, 
 				opacity=1.0
 			] (box) at (0,0) {};
 		\end{tikzpicture}
@@ -786,9 +769,9 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 }
 
 \newcommand{\yPosInterestSection}[1]{\renewcommand{\yPosInterestSection}{#1}}
-\yPosInterestSection{ 13.35 } 
+\yPosInterestSection{ 13.2 } 
 \newcommand{\yPosCertificatesSection}[1]{\renewcommand{\yPosCertificatesSection}{#1}}
-\yPosCertificatesSection{ 255pt } 
+\yPosCertificatesSection{ 274pt } 
 \newlength\projectsHrefAreaWidth
 \pgfmathsetlength{\projectsHrefAreaWidth}{\projectsTableWidth+0.9cm}
 \newcommand{\xPosProjectsHrefArea}[1]{\renewcommand{\xPosProjectsHrefArea}{#1}}
@@ -803,30 +786,31 @@ Akademia G\'orniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie%
 	\posContactInfo
 		
 	%%%	polishVersion
-	\sideBarSection{Umiej\k{e}tno\'sci}{0pt}
+	\sideBarSection{Umiejętności}{0pt}
 	\posSkills{%
-		{Unix \textbullet{} Github \textbullet{} LaTeX \textbullet{} UI Diagrams/2.0},%
-		{JavaScript \textbullet{} Angular 5 \textbullet{} Node.js/2.0},%
-		{HTML \textbullet{} CSS \textbullet{} Word/2.25},%
-		{Erlang \textbullet{} Prolog \textbullet{} Haskell/2.5},%
-		{C \textbullet{} C++ \textbullet{} Ada \textbullet{} Matlab \textbullet{} Excel/2.75},%
-		{PostgreSQL \textbullet{} JavaEE/3.0},%
-		{Java/4.0}%
+	    {C \textbullet{} C++ \textbullet{} Node.js \textbullet{} Angular 5 \textbullet{} React /2.75},%
+	    {Wildfly \textbullet{} Swift (iOS) \textbullet{} MS Office /3.0},%
+	    {Erlang, Prolog, Haskell /3.25},%
+	    {JavaFX \textbullet{} Android (Java) \textbullet{} Ada \textbullet{} Matlab /3.5},%
+		{HTML \textbullet{} CSS \textbullet{} JavaScript /3.75},%
+		{Unix \textbullet{} Github \textbullet{} LaTeX /4.0},%
+		{PostgreSQL \textbullet{} Maven \textbullet{} Spring /4.25},%
+		{Java /4.5}%
 	}
 	\sideBarSection{Certyfikaty}{ \yPosCertificatesSection }
 	\certificates
 	\posCustomSection{Edukacja}{6}{-0.33}
 	\educationTable
-	\posCustomSection{Do{\'s}wiadczenie}{6}{2.949}
-	\experienceTable{5.6}{3.6}
-	\posCustomSection{Projekty}{6}{5.749}
-	\projectsTable{5.6}{6.35}
+	\posCustomSection{Do{\'s}wiadczenie}{6}{0.955}
+	\experienceTable{5.6}{1.625}
+	\posCustomSection{Projekty}{6}{3.35}
+	\posProjectHyperLinkInformation{{\color{colorSectionBlue}Wszystkie} tytuły projektów zawierają linki do repozytoriów \newline zawierających dany projekt. Proszę kliknąć ikonkę \emph{github}a lub tytuł projektu, aby przejść do repozytorium.}{8.7}{3.35}
+	\projectsTable{5.5}{3.95}
 
-	\sideBarSection{Certyfikaty}{ \yPosCertificatesSection }
 	\posCustomSection{Zainteresowania}{6}{ \yPosInterestSection }
-	\interests{5.6}{14.0}
-	\permissionFootnote%
-		{Wyra�am zgod� na przetwarzanie moich danych osobowych r�wnie� na potrzeby przysz�ych rekrutacji, zgodnie z art. 6 ust. 1 lit. a Rozporz�dzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony os�b fizycznych w zwi�zku z przetwarzaniem danych osobowych i w sprawie swobodnego przep�ywu takich danych oraz uchylenia dyrektywy 95/46/WE (og�lne rozporz�dzenie o ochronie danych)}
+	\interests{5.6}{13.85}
+% 	\permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych również na potrzeby przyszłych rekrutacji, zgodnie z art. 6 ust. 1 lit. a Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych)}
+    \permissionFootnote{Wyrażam zgodę na przetwarzanie danych osobowych zawartych w niniejszym dokumencie do realizacji procesu rekrutacji zgodnie z ustawą z dnia 10 maja 2018 roku o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO)}
 \end{document}
 
 % \k{a} \'c \k{e} \l{} \'n \'o \'s
