@@ -1,0 +1,891 @@
+% https://pdfhost.io/v/IoOkJ0QfC_JacekOlesCVpdf.pdf
+% https://pdfhost.io/edit?doc=5d63b4cd-be53-4241-a5cf-4a75d37bb6be
+\documentclass[hidelinks, a4paper, 11pt]{article}
+% \documentclass[a4paper, 11pt]{article}
+
+\author{Jacek Oleś}
+\title{CV}
+\date{14.04.2022}
+
+\usepackage[english,polish]{babel}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+% \usepackage[latin2]{inputenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[sfdefault]{ClearSans}
+\usepackage[margin=0pt]{geometry}
+\usepackage{csquotes}
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{forloop}
+\usepackage{textpos}
+\usepackage{parskip}
+\usepackage{ifmtarg}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+\usepackage{tabularx, etoolbox}
+
+\selectlanguage{polish}
+
+\DeclareQuoteAlias{croatian}{polish}
+
+\lstset{language=TeX}
+\lstset{%
+	literate={ą}{{\k{a}}}1
+	{ć}{{\'c}}1
+	{ę}{{\k{e}}}1
+	{ó}{{\'o}}1
+	{ń}{{\'n}}1
+	{ł}{{\l{}}}1
+	{ś}{{\'s}}1
+	{ź}{{\'z}}1
+	{ż}{{\.z}}1
+	{Ą}{{\k{A}}}1
+	{Ć}{{\'C}}1
+	{Ę}{{\k{E}}}1
+	{Ó}{{\'O}}1
+	{Ń}{{\'N}}1
+	{Ł}{{\L{}}}1
+	{Ś}{{\'S}}1
+	{Ź}{{\'Z}}1
+	{Ż}{{\.Z}}1
+}
+
+\newlength\sideBarWidth
+\pgfmathsetlength{\sideBarWidth}{20em}
+\newlength\mainSectionWidth
+\pgfmathsetlength{\mainSectionWidth}{\textwidth - \sideBarWidth}
+\newcommand{\drawDocument}{
+    \begin{textblock*}{\sideBarWidth}(0cm, 0cm)
+        \drawSideBar
+    \end{textblock*}
+	\begin{textblock*}{\mainSectionWidth}(\sideBarWidth, 0cm)
+        \drawMainSection
+    \end{textblock*}
+	\drawPermissionFootnote
+}
+
+\newcommand{\drawSideBar}{
+    \drawSideBarBg
+	\drawName
+	\drawProfilePic{rectanglePhoto.jpg}
+	
+	\drawContactInfo{-0.01cm}{4.8cm}
+	
+	\drawSideBarSection{0.3cm}{7.85cm}{Skills}
+	
+	\drawSkills{0.34cm}{9.0cm}{%
+	    {JavaFX \textbullet{} Ada /1.0},%
+	    {C \textbullet{} C++ \textbullet{} Node.JS \textbullet{} Matlab /1.25},%
+	    {Erlang \textbullet{} Prolog \textbullet{} Haskell \textbullet{} Scala \textbullet{} JPA /1.5},%
+	    {Swift (iOS) \textbullet{} MS Office \textbullet{} LaTeX \textbullet{} Jenkins /1.75},%
+	    {Google's: Piper \textbullet{} CitC \textbullet{} Critique /2.0},%
+	    {Google's: BUILD \textbullet{} Blaze /2.25},%
+	    {Proto3 \textbullet{} Guice \textbullet{} Mockito \textbullet{} JSF /2.5},%
+	    {Tomcat \textbullet{} JBoss Wildfly \textbullet{} Android (Java) /3.0},%
+	    {Pega Platform /3.5},%
+	    {OracleDB \textbullet{} Docker \textbullet{} Angular \textbullet{} ReactJS /3.75},%
+		{PostgreSQL \textbullet{} Maven \textbullet{} Spring MVC\slash Boot /4.0},%
+		{HTML \textbullet{} CSS \textbullet{} JavaScript /4.25},%
+		{Unix \textbullet{} Github /4.5},%
+		{Java \textbullet{} J2EE \textbullet{} JUnit 4\slash 5 /4.75}%
+	}
+	
+	\drawSideBarSection{0.3cm}{15.6cm}{Certificates}
+	
+	\drawCertificates{0.0cm}{16.7cm}
+	
+	\drawSideBarSection{0.3cm}{21.1cm}{Interests}
+	
+	\drawInterests{0.0cm}{22.2cm}
+}
+
+\definecolor{sideBarBgColor}{RGB}{210, 210, 210}
+\newcommand{\drawSideBarBg}{
+	\begin{tikzpicture}[remember picture,overlay]
+   		\node [ 
+   			rectangle, 
+   			fill=sideBarBgColor, 
+   			anchor=north west, 
+   			minimum width = \sideBarWidth+0.05cm, 
+   			minimum height= \paperheight+0.5cm 
+   		] (box) at (-0.85cm,0.5cm) { };
+	\end{tikzpicture}
+}
+
+\newlength\sideBarHMarginOffset
+\setlength\sideBarHMarginOffset{-0.44cm}
+\newlength\sideBarVMarginOffset
+\setlength\sideBarVMarginOffset{-0.5cm}
+\definecolor{primaryBlueColor}{RGB}{34, 85, 128}
+
+\newlength\nameXPos
+\pgfmathsetlength\nameXPos{\sideBarHMarginOffset + 1.25cm}
+\newlength\nameYPos
+\pgfmathsetlength\nameYPos{\sideBarVMarginOffset + 0.65cm}
+\newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
+\cvname{Jacek Oleś}
+\newcommand{\drawName}{
+    \begin{center}
+        \begin{textblock*}{\sideBarWidth}(\nameXPos, \nameYPos)
+        	\huge\color{primaryBlueColor}\cvname
+        \end{textblock*}
+    \end{center}
+}
+
+\definecolor{profilePicMaskColor}{HTML}{ff33f9}
+
+\newlength\profilePicCircleXPos
+\pgfmathsetlength\profilePicCircleXPos{\sideBarHMarginOffset - 2.0cm}
+\newlength\profilePicCircleYPos
+\pgfmathsetlength\profilePicCircleYPos{\sideBarVMarginOffset + 0.25cm}
+
+\newlength\borderCircleVOffset
+\setlength\borderCircleVOffset{1.0cm}
+
+\newlength\borderCircleXPos
+\pgfmathsetlength\borderCircleXPos{\profilePicCircleXPos}
+\newlength\borderCircleYPos
+\pgfmathsetlength\borderCircleYPos{\profilePicCircleYPos + \borderCircleVOffset}
+
+\newcommand{\drawProfilePic}[1]{
+	\begin{center}
+	    \begin{textblock*}{\sideBarWidth}(\borderCircleXPos, \borderCircleYPos)
+            \begin{tikzpicture}[remember picture, overlay]
+    			\node [ 
+       				circle, 
+       				fill=primaryBlueColor, 
+    				anchor=center, 
+    				inner sep = 0.75cm, 
+    				outer sep = 0
+                ] at (0, 0) { };
+    		\end{tikzpicture}
+		\end{textblock*}
+	    \begin{textblock*}{\sideBarWidth}(\profilePicCircleXPos, \profilePicCircleYPos)
+    		\begin{tikzpicture}
+    		    \clip (0, 0) circle (1cm);
+    			\node [ 
+      				circle, 
+      				fill=profilePicMaskColor,
+      				anchor=center
+    			] at (0, 0) { \includegraphics[width = 2.5cm]{#1} };
+    		\end{tikzpicture}
+		\end{textblock*}
+	\end{center}
+}
+
+\def \cvnumberphonehref {48693534913}
+\def \cvnumberphone {+48 693-534-913}
+\def \cvlocation {Cracow, Poland}
+\def \cvsite {---}
+\def \cvmail {jacek.oles0925@gmail.com}
+\def \cvlinkedin {linkedin.com/in/jacek-oles-0925}
+\def \cvgithub {github.com/axal25}
+\newcommand{\drawContactInfo}[2]{
+	\begin{textblock*}{\sideBarWidth}(#1, #2)
+		
+		\newlength\contactInfoInvisibleUrlsXPos
+		\pgfmathsetlength\contactInfoInvisibleUrlsXPos{\sideBarHMarginOffset + 0.75cm}
+        \newlength\contactInfoInvisibleUrlsYPos
+        \pgfmathsetlength\contactInfoInvisibleUrlsYPos{\sideBarVMarginOffset - 2.415cm}
+		\drawContactInfoInvisibleUrls{\contactInfoInvisibleUrlsXPos}{\contactInfoInvisibleUrlsYPos}
+		
+		\drawContactInfoCircles{0.0cm}{0.0cm}
+		
+		\newlength\contactInfoIconsXPos
+		\pgfmathsetlength\contactInfoIconsXPos{\sideBarHMarginOffset + 1.1225cm}
+        \newlength\contactInfoIconsYPos
+        \pgfmathsetlength\contactInfoIconsYPos{\sideBarVMarginOffset - 2.12cm}
+		\drawnContactInfoIcons{\contactInfoIconsXPos}{\contactInfoIconsYPos}
+		
+		\newlength\contactInfoTextXPos
+		\pgfmathsetlength\contactInfoTextXPos{\sideBarHMarginOffset + 1.9cm}
+        \newlength\contactInfoTextYPos
+        \pgfmathsetlength\contactInfoTextYPos{\sideBarVMarginOffset - 2.0cm}
+		\drawnContactInfoText{\contactInfoTextXPos}{\contactInfoTextYPos}
+	\end{textblock*}
+}
+
+\newcommand{\drawContactInfoInvisibleUrls}[2]{
+    \newlength\sideBarUrlWidth
+	\pgfmathsetlength\sideBarUrlWidth{\sideBarWidth * 0.8}
+    \begin{textblock*}{\sideBarUrlWidth}(#1, #2)
+        \footnotesize
+        \begin{textblock*}{\sideBarUrlWidth}(0.0cm, 0.0cm)
+        	\href{tel:\cvnumberphonehref}{
+                \begin{tabularx}{\sideBarUrlWidth}{m{\sideBarUrlWidth}}
+                    \\
+                    \\
+                    \\
+		        \end{tabularx}
+            }
+        \end{textblock*}
+        \begin{textblock*}{\sideBarUrlWidth}(0.0cm, 1.2cm)
+            \begin{tabularx}{\sideBarUrlWidth}{m{\sideBarUrlWidth}}
+                \\
+                \\
+                \\
+	        \end{tabularx}
+        \end{textblock*}
+        \begin{textblock*}{\sideBarUrlWidth}(0.0cm, 2.4cm)
+        	\href{mailto:\cvmail}{
+                \begin{tabularx}{\sideBarUrlWidth}{m{\sideBarUrlWidth}}
+                    \\
+                    \\
+                    \\
+		        \end{tabularx}
+            }
+        \end{textblock*}
+        
+        \begin{textblock*}{\sideBarUrlWidth}(0.0cm, 3.6cm)
+            \href{https://www.\cvlinkedin}{
+                \begin{tabularx}{\sideBarUrlWidth}{m{\sideBarUrlWidth}}
+                    \\
+                    \\
+                    \\
+		        \end{tabularx}
+            }
+        \end{textblock*}
+        
+        \begin{textblock*}{\sideBarUrlWidth}(0.0cm, 4.8cm)
+            \href{https://www.\cvgithub}{
+                \begin{tabularx}{\sideBarUrlWidth}{m{\sideBarUrlWidth}}
+                    \\
+                    \\
+                    \\
+		        \end{tabularx}
+            }
+        \end{textblock*}
+    \end{textblock*}
+}
+
+\definecolor{primaryWhiteColor}{RGB}{255,255,255}
+\newcommand{\contactInfoCirclesAmount}[1]{\renewcommand{\contactInfoCirclesAmount}{#1}}
+\contactInfoCirclesAmount{5}
+\newlength\xPosCurrentCircle
+\newlength\yPosCurrentCircle
+\newlength\currentCircleVOffset
+\newcommand{\drawContactInfoCircles}[2]{
+    \begin{textblock*}{\sideBarWidth}(#1, #2)
+    	\newcounter{currentCircleIndex}
+    	\forloop{currentCircleIndex}{0}{\value{currentCircleIndex} < \contactInfoCirclesAmount}
+    	{
+    	    \pgfmathsetlength{\currentCircleVOffset}{(\value{currentCircleIndex} - 1) * 34.25}
+            \pgfmathsetlength\xPosCurrentCircle{#1 - 3.524cm}
+            \pgfmathsetlength\yPosCurrentCircle{#2 - 1.7cm + \currentCircleVOffset}
+    	    \begin{center}
+    	        \begin{textblock*}{\sideBarWidth}(\xPosCurrentCircle, \yPosCurrentCircle)
+            	    \begin{tikzpicture}[remember picture,overlay]
+                		\node [ 
+                  			circle, 
+                  			fill=primaryWhiteColor, 
+                			anchor=north west, 
+                			inner sep = 10pt, 
+                			outer sep = 7pt
+                		] at (0.0cm, 0.0cm) { };
+                	\end{tikzpicture}
+    	        \end{textblock*}
+    	    \end{center}
+    	}
+    \end{textblock*}
+}
+
+\definecolor{locationIconColor}{RGB}{30, 163, 98}
+\definecolor{webPageIconColor}{RGB}{30, 187, 238}
+\definecolor{emailIconColor}{RGB}{212, 70, 56}
+\definecolor{linkedinIconColor}{RGB}{0, 97, 146}
+\definecolor{githubIconColor}{RGB}{33, 31, 31}
+\newcommand{\drawnContactInfoIcons}[2]{
+    \begin{textblock*}{\sideBarWidth}(#1, #2)
+        \huge
+        \begin{textblock*}{\sideBarWidth}(-0.04cm, -0.06cm)
+            {\Huge\faMobile}
+        \end{textblock*}
+        
+        \begin{textblock*}{\sideBarWidth}(-0.18cm, 1.18cm)
+            { \textcolor{locationIconColor}\faHome }
+        \end{textblock*}
+        
+        \begin{textblock*}{\sideBarWidth}(-0.205cm, 2.38cm)
+            { \textcolor{emailIconColor} \faEnvelopeO }
+        \end{textblock*}
+        
+        \begin{textblock*}{\sideBarWidth}(-0.16cm, 3.5275cm)
+            { \textcolor{linkedinIconColor} \faLinkedin }
+        \end{textblock*}
+        
+        \begin{textblock*}{\sideBarWidth}(-0.16cm, 4.75cm)
+            { \textcolor{githubIconColor} \faGithub }
+        \end{textblock*}
+    \end{textblock*}
+}
+
+\newcommand{\drawnContactInfoText}[2]{
+    \footnotesize
+    \begin{textblock*}{\sideBarWidth}(#1, #2)
+        \begin{textblock*}{\sideBarWidth}(0.0cm, 0.0cm)
+            \cvnumberphone
+        \end{textblock*}
+        \begin{textblock*}{\sideBarWidth}(0.0cm, 1.2cm)
+            \cvlocation
+        \end{textblock*}
+        \begin{textblock*}{\sideBarWidth}(0.0cm, 2.38cm)
+            \cvmail
+        \end{textblock*}
+        \begin{textblock*}{\sideBarWidth}(0.0cm, 3.60cm)
+            \cvlinkedin
+        \end{textblock*}
+        \begin{textblock*}{\sideBarWidth}(0.0cm, 4.78cm)
+            \cvgithub
+        \end{textblock*}
+    
+    \end{textblock*}
+}
+
+
+\newlength\sideBarSectionRulerInitialLength
+\newlength\sideBarSectionNameLength
+\newlength\sideBarSectionRulerLength
+\newcommand{\drawSideBarSection}[3]{
+    {
+        \huge
+    	\pgfmathsetlength\sideBarSectionRulerInitialLength{\sideBarWidth * 0.785}
+        \settowidth{\sideBarSectionNameLength}{#3}
+    	\pgfmathsetlength\sideBarSectionRulerLength{\sideBarSectionRulerInitialLength - \sideBarSectionNameLength}
+        \begin{textblock*}{\sideBarWidth}(#1, #2)
+            \color{black!80} #3
+            \rule[0.15\baselineskip]{\sideBarSectionRulerLength}{1pt}
+    	\end{textblock*}
+	}
+}
+
+\newcommand{\drawSkills}[3]{
+    \definecolor{skillBarBgColor}{RGB}{150, 150, 150}
+    % \definecolor{colorSectionBlue}{RGB}{0, 150, 222}
+    \definecolor{skillBarLvlColor}{RGB}{0, 150, 222}
+    \newlength\skillBarHeight
+    \pgfmathsetlength\skillBarHeight{0.36cm}
+    \newlength\skillBarMarginHeight
+    \pgfmathsetlength\skillBarMarginHeight{0.1cm}
+    \newlength\skillBarWithMarginHeight
+    \pgfmathsetlength\skillBarWithMarginHeight{\skillBarHeight + \skillBarMarginHeight}
+    \newlength\currentSkillBarVPos
+    \newlength\skillBarTextVOffset
+    \pgfmathsetlength\skillBarTextVOffset{0.18cm}
+
+    \begin{textblock*}{\sideBarWidth}(#1, #2)
+        \begin{tikzpicture}
+    		\foreach [count=\i] \x/\y in {#3}
+    		{
+    		    \pgfmathsetlength\currentSkillBarVPos{\i*\skillBarWithMarginHeight}
+    		    
+    			\draw[fill=skillBarBgColor,skillBarBgColor] (0,\currentSkillBarVPos) rectangle (6,\currentSkillBarVPos + \skillBarHeight);
+    			\draw[fill=skillBarLvlColor,skillBarLvlColor](0,\currentSkillBarVPos) rectangle (\y,\currentSkillBarVPos + \skillBarHeight);
+    			\node [right] at (0,\currentSkillBarVPos + \skillBarTextVOffset) {\footnotesize\x};
+    		}
+    	\end{tikzpicture}
+	\end{textblock*}
+}
+
+\newcommand{\drawCertificates}[2]{
+    \newlength\certificatesWidth
+    \pgfmathsetlength\certificatesWidth{\sideBarWidth * 0.75}
+    \newlength\certificatesColumnWidthOne
+    \pgfmathsetlength\certificatesColumnWidthOne{\certificatesWidth * 0.02}
+    \newlength\certificatesColumnWidthTwo
+    \pgfmathsetlength\certificatesColumnWidthTwo{\certificatesWidth - \certificatesColumnWidthOne}
+
+	\begin{textblock*}{\sideBarWidth}(#1, #2)
+	    \small
+		\begin{tabularx}{\sideBarWidth}{m{\certificatesColumnWidthOne}m{\certificatesColumnWidthTwo}}
+		    \textbullet{} & Engineering Degree \newline Bachelor of Computer Science \\
+			\\
+			\textbullet{} & English CEFR certificate C1 level \\
+		    \\
+			\textbullet{} & \href{https://www.coursera.org/learn/logic-introduction}{Introduction to Logic \newline%
+			Stanford University \newline%
+			Online course} \\
+			\\
+			\textbullet{} & \href{https://academy.pega.com/exam/pega-certified-system-architect-3}{Pega Certified System Architect 8.5}
+		\end{tabularx}
+	\end{textblock*}
+}
+
+\newcommand{\drawInterests}[2]{
+    \newlength\interestsWidth
+    \pgfmathsetlength\interestsWidth{\sideBarWidth * 0.75}
+    \newlength\interestsColumnWidthOne
+    \pgfmathsetlength\interestsColumnWidthOne{\interestsWidth * 0.02}
+    \newlength\interestsColumnWidthTwo
+    \pgfmathsetlength\interestsColumnWidthTwo{\interestsWidth - \interestsColumnWidthOne}
+
+	\begin{textblock*}{\sideBarWidth}(#1, #2)
+		\changeFontSize{8px}%
+		\begin{tabularx}{\sideBarWidth}{m{\interestsColumnWidthOne}m{\interestsColumnWidthTwo}}
+		    \textbullet{} & Virtual entertainment and gaming industry. \\%
+		    \\%
+		    \textbullet{} & Foreign affairs, international politics and other news. Primarily the US. \\%
+		    \\%
+		    \textbullet{} & Biology and Science news and trivia. \\%
+		    \\%
+		    \textbullet{} & Gathering interesting story ideas from books, comics, films, series and games. \\%
+		    \\%
+		    \textbullet{} & Writing short stories. \\%
+		    \\%
+		    \textbullet{} & Illustration and animation.%
+		\end{tabularx}
+	\end{textblock*}
+}
+
+\newcommand{\drawMainSection}{
+    \newlength\twoColorCustomSectionHOffset
+    \pgfmathsetlength\twoColorCustomSectionHOffset{-1.05cm}
+    \newlength\mainSectionTablesHOffset
+    \pgfmathsetlength\mainSectionTablesHOffset{-0.45cm}
+	
+	\drawTwoColorCustomSection{\twoColorCustomSectionHOffset}{-0.1cm}{Experience}
+	\drawExperienceTable{\mainSectionTablesHOffset}{0.7cm}
+    
+	\drawTwoColorCustomSection{\twoColorCustomSectionHOffset}{24.4cm}{Education}
+	\drawEducationTable{\mainSectionTablesHOffset}{25.3cm}
+
+% 	\drawTwoColorCustomSection{\twoColorCustomSectionHOffset}{20.5cm}{Projects}
+% 	\drawProjectsTable{\mainSectionTablesHOffset}{21.0cm}
+}
+
+\newcommand{\drawTwoColorCustomSection}[3]{
+	\begin{textblock*}{\mainSectionWidth}(#1, #2)
+    	\textbf{%
+    		\changeFontSize{18px}%
+    		\headingfont{colorSectionGray}% 
+    		\@colorFirstThreeLettersOfSection%
+    		#3%
+    	}
+	\end{textblock*}
+}
+
+\newcommand{\changeFontSize}[1]{
+	\fontsize{#1}{#1 * 1.2} \selectfont
+}
+
+\definecolor{colorSectionGray}{RGB}{77, 77, 77}
+\newcommand{\headingfont}[1]{
+	\fontfamily{phv} 
+	\selectfont 
+	\color{#1} 
+}
+
+% \PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+\definecolor{colorSectionBlue}{RGB}{0, 150, 222}
+\def\@colorFirstThreeLettersOfSection#1#2#3{%
+	{%
+		\color{colorSectionBlue} #1#2#3%
+	}%
+}
+
+\newlength\mainSectionContentsWidth
+\pgfmathsetlength\mainSectionContentsWidth{\mainSectionWidth * 0.95}
+\newcommand{\drawEducationTable}[2]{
+    \newlength\educationColumnWidthOne
+    \pgfmathsetlength\educationColumnWidthOne{\mainSectionContentsWidth * 0.1}
+    \newlength\educationColumnWidthTwo
+    \pgfmathsetlength\educationColumnWidthTwo{\mainSectionContentsWidth - \educationColumnWidthOne}
+    
+	\begin{textblock*}{\mainSectionWidth}(#1, #2)
+        \changeFontSize{8px}
+	    \begin{tabularx}{\mainSectionContentsWidth}{m{\educationColumnWidthOne}m{\educationColumnWidthTwo}}
+		    \bf2020 & Computer Science \\
+			\vspace{5px} \color{colorSectionGray}Faculty of &
+			\vspace{5px} Electrical Engineering, Automatics, Computer Science \newline and Biomedical Engineering \\
+			\vspace{5px} \color{colorSectionGray}University &
+			\vspace{5px} AGH University of Science and Technology \\
+		\end{tabularx}
+	\end{textblock*}
+}
+
+\newcolumntype{R}[1]{>{\raggedleft}m{#1}}
+\newcolumntype{T}[1]{>{}p{#1}<{\vspace{\fill}}}
+\newcommand{\drawExperienceTable}[2]{
+    \newlength\expierienceColumnWidthOne
+    \pgfmathsetlength{\expierienceColumnWidthOne}{\mainSectionContentsWidth * 0.2}
+    \newlength\expierienceColumnWidthTwo
+    \pgfmathsetlength{\expierienceColumnWidthTwo}{\mainSectionContentsWidth - \expierienceColumnWidthOne}
+    \newlength\tabIndent
+    \setlength\tabIndent{0.5cm}
+    
+    % I. 2022 - ??
+        % EPAM Systems (Poland) Sp. z o. o. 
+            % Client: Google (Google 3, Software & Hi-Tech)
+                % Project: GO3-GDC, ASCII Google Data Centers engineering co-sourcing, GOOG-CECS split 
+                    % Internal project: 
+                        % PMT (Project Management Tool) 
+                        % REWS (Real Estate & Workspace Services), 
+                        % SIPO (Supply Chain Invoices / Services Indirect Procurement Optimization), 
+                        % SAL (Sapply Chain API Layer), 
+                        % SAP (Systemanalyse und Programmentwicklung [ang. Systems Applications and Products in Data Processing])
+                    % Overview: Primavera 6, SAP, e-Builder
+                    % Overview 2: MARCUS, YAWN, ESCROW, INV PGM, Fund Disbursement, Funding, Appropriation Request
+                        % Technology: Java
+    % XI. 2020 - I. 2021
+        % EPAM Systems (Poland) Sp. z o. o. 
+            % Bench 
+                % Technology: Java
+    % VI. 2021 - XI. 2021
+        % EPAM Systems (Poland) Sp. z o. o. 
+            % Client: SCI Management, EV - Other
+                % Project: SCIM-EDD, Define/Design E2E Transformation Phase
+                    % Technology: Pega
+                % Team: 
+                    % Project team: 60 members. Sub-Team (Team 3): 13 members (7 Developers, 4 QAs, 2 BAs).%
+    % IV. 2021 - V. 2021 
+        % EPAM Systems (Poland) Sp. z o. o.
+            % Pega Certification Training
+                % Technology: Pega
+    % VII. 2020 - III. 2021 
+        % Visiona Sp. z o. o. 
+            % Various Polish Banks: BNP Paribas, IT Card
+                % Technology: Java
+                % Team:
+                    % Manager, Team Lead, 3 Java Developers, 2 BDD/Manual Testers, Automation Tester, DB Specialist, BA.
+
+	\begin{textblock*}{\mainSectionWidth}(#1, #2)
+		\begin{tabularx}{\mainSectionContentsWidth}{@{}R{\expierienceColumnWidthOne}T{\expierienceColumnWidthTwo}}
+		    \changeFontSize{8px}\textbf{2020}\changeFontSize{6px}IV%
+			&%
+			\changeFontSize{8px} \underline{EPAM Systems (Poland) Sp. z o. o.}%
+			\\%
+			
+			\color{colorSectionGray}\changeFontSize{6px}Position / Role%
+			&%
+			{\changeFontSize{8px}\textbf{Software Engineer / Application Engineer}}%
+			\\%
+			
+		    \changeFontSize{6px}\color{colorSectionGray}Client%
+			&%
+			\changeFontSize{8px} Mystery Client%
+			\\%
+			
+		    \changeFontSize{6px}\color{colorSectionGray}Project overview%
+			&%
+			\changeFontSize{8px}%
+			\textit{PMT - Project Management Tool}\newline%
+			Automatization and integration of business processes between multiple systems:\newline%
+			e-Builder, SAP, Primavera 6, Buginizer, SAL, and SIPO.%
+			\\%
+			
+		    \changeFontSize{6px}\color{colorSectionGray}Technology stack%
+			&%
+			{\changeFontSize{8px} Java, Proto3, Guice, JUnit 4, Mockito, BUILD, Blaze, Piper, CitC, Critique}%
+			\\%
+			
+		    \changeFontSize{6px}\color{colorSectionGray}Responsibilities%
+			&%
+			\changeFontSize{8px}%
+			Implemented new back-end functionality features, unit, and integration tests.\newline%
+	        %(Client in the Cloud), (Change List),  (Looks Good To Me)
+	        Used CitC, Critique to perform code reviews, resolve conflicts, and submit CLs.\newline%
+	        Utilized TaskFlow, Buginizer, Jira and time.epam.com to track task progress.\newline%
+			Resolved design issues in cooperation with other Developers and SMEs.\newline% (subject-matter expert)
+	        Participated in Daily Scrum and issue-specific meetings.%
+			\\%
+			
+			\\%
+			
+			\color{colorSectionGray}\changeFontSize{6px}Position / Role%
+			&%
+			{\changeFontSize{8px}\textbf{Software Engineer / System Architect}}%
+			\\%
+			
+		    \changeFontSize{6px}\color{colorSectionGray}Client%
+			&%
+			\changeFontSize{8px} Service Corporation International%
+			\\%
+			
+		    \changeFontSize{6px}\color{colorSectionGray}Project overview%
+			&%
+			\changeFontSize{8px}%
+			\textit{SCI Compass}\newline%
+			Pega BPM application for Web, Android, and iOS platforms.\newline%
+			All-in-one functionality package of previously separate platform-specific products for SCI's internal use.\newline%
+			Secure and automated management of person's remains throughout funeral preparation process.%
+			\\%
+			
+		    \changeFontSize{6px}\color{colorSectionGray}Technology stack%
+			&%
+			\changeFontSize{8px} Pega BPM, CSS, Android Dev Studio, EPAM's Mobile Cloud solution, Jira, Okta%
+			\\%
+			
+			\color{colorSectionGray}\changeFontSize{6px}Responsibilities%
+			&%
+			\changeFontSize{8px}%
+			Implemented new features using Pega BPM, based on design specifications.\newline%
+			Fixed defects using Pega BPM, and documentated them using bug tracking tools.\newline%
+			Tested changes on Web/Android/iOS using Adroid Dev Studio and Mobile Cloud.\newline%
+			Reported Pega platform's issues in ticket form to Pega support (msp.pega.com).\newline
+	        Utilized Jira and time.epam.com to pick and track task progress.\newline%
+			Participated in various meetings: Daily Sync, Pre-planning, Grooming, Estimation, Team/Global Retro, Demo, Pega Support, and other issue-specific meetings.\newline
+			Designed and documented requirements for Pega's back-end input validation.\newline
+			Researched available options, implemented, and tested them.\newline
+			Prepared onboarding documentation to help integrate new team members.\newline
+			Designed and implemented new styles (skins) for Pega UI elements.%
+			\\%
+			
+			\\%
+			
+		    \changeFontSize{8px}\textbf{2020}{\changeFontSize{6px}VII} -\changeFontSize{8px}\textbf{2021}{\changeFontSize{6px}III}%
+			&%
+			\changeFontSize{8px} \underline{Visiona Sp. z o. o.}%
+			\\%
+			
+			\color{colorSectionGray}\changeFontSize{6px}Position / Role%
+			&%
+			{\changeFontSize{8px}\textbf{Junior Software Engineer}}%
+			\\%
+			
+		    \changeFontSize{6px}\color{colorSectionGray} Clients%
+			&%
+			\changeFontSize{8px} Various Polish Banks: e.g. BNP Paribas, IT Card
+			\\%
+			
+		    \changeFontSize{6px}\color{colorSectionGray}Project overview%
+			&%
+			\changeFontSize{8px}%
+			\textit{CSS5 Backoffice, MMS, VTT} Modules\newline%
+			Web application for Bank's internal use.\newline%
+			Main functionality consists of:\newline
+			\hspace*{\tabIndent}\textbullet{} Bank's client, merchant, employee, terminal and service management;\newline%
+			\hspace*{\tabIndent}\textbullet{} Bank's automated business process testing;\newline%
+			\hspace*{\tabIndent}\textbullet{} Fraudulent transaction detection.\newline%
+			\textit{MMS WS-Info} - REST service providing partial CSS5 MMS functionality.%
+			\\%
+			
+		    \changeFontSize{6px}\color{colorSectionGray}Technology stack%
+			&%
+			\changeFontSize{8px} Java, J2EE, Spring MVC/Boot, JPA, Hibernate, Eclipse link, JDBC, JSF, Tomcat, Weld, Richfaces, Primefaces, CSS, Mockito, JUnit 4/5, OracleDB, X/JRebel, Maven, SVN, Gitlab, TortoiseGit, Redmine, Jenkins, Greylog, IntelliJ, MS Teams.%
+			\\%
+			
+		    \color{colorSectionGray}\changeFontSize{6px}Responsibilities%
+			&%
+			\changeFontSize{8px}%
+			Developed new features, maintained code, and fixed bugs for back/front-end.\newline%
+			Implemented unit and integration tests.\newline%
+			Developed basic BDD tests for newly implemented front-end views.\newline%
+			Resolved design issues in cooperation with BAs and Database Specialists.\newline%
+			Used Git to create branches, commit, resolve conflicts, and request merges.\newline%
+			Utilized Redmine to pick, track task progress, and connect them to commits.\newline%
+			Performed code reviews using Gitlab, GitTortoise, and Redmine.\newline%
+			Used Jenkins to rebuild Docker containers with various module composition.\newline%
+			Utilized Greylog to troubleshoot issues with Jenkins container rebuild process.\newline%
+			Utilized JRebel to dynamically recompile application.\newline%
+			Tracked and debugged requests/responses from/to database using XRebel.\newline%
+			Participated in weekly and additional team meetings.\newline%
+			Collaborated with team members on development issues via MS Teams.\newline%
+			Sought guidence of senior team members on resolving programming challenges.%
+			\\%
+			
+			\\%
+			
+			\changeFontSize{8px}\textbf{2017}\changeFontSize{6px}\color{colorSectionGray}VII - VIII%
+			&%
+			\changeFontSize{8px} \underline{BNP Paribas Bank Polska S.A.}%
+			\\%
+			
+			\color{colorSectionGray}\changeFontSize{6px}Position / Role%
+			&%
+			{\changeFontSize{8px}\textbf{Apprenticeship at Project Management department}}%
+			\\%
+			
+		    \color{colorSectionGray}\changeFontSize{6px}Responsibilities%
+			&%
+			\changeFontSize{8px}%
+			Organized, attended, and prepared summary minute notes from meetings.\newline%
+			Created budget statement for multi-project programme in MS Excel.\newline%
+			Summarized availability of compliance information from 3rd-party vendors.%
+		\end{tabularx}
+	\end{textblock*}
+}
+
+\newcommand{\drawProjectsTable}[2]{
+    \newlength\projectsTableWidth
+    \pgfmathsetlength{\projectsTableWidth}{0.63\textwidth}
+	\begin{textblock*}{\mainSectionContentsWidth}(#1, #2)
+		\begin{tabularx}{\projectsTableWidth}{m{\projectsTableWidth}}
+		    \projectEntryName{https://github.com/axal25/JavaLaboratoriesGUI}{JavaLaboratoriesGUI}%
+		    \projectEntryTechStack{{JFoenix}, {JavaFX}, {Maven}, {Java}}%
+		    \\%
+		    
+		    \projectEntryTech{Project teaching \emph{Java} concepts using \emph{JavaFX} visualization of problems solved in \coloredHref{https://github.com/axal25/JavaLaboratories}{JavaLaboratories}.}%
+		    \\%
+		    
+		    \projectEntryName{https://github.com/axal25/TrieTreeImplementations}{TrieTreeImplementations}%
+		    \projectEntryTechStack{{FXGraph}, {JavaFX}, {Maven}, {Java}, {LaTeX}}%
+		    \\%
+		    
+		    \projectEntryTech{Engineering thesis program containing Patricia Tree implementation in accordance with Knuth's ``The Art of Computer Programming``, additional features and tree structure visualization.}\\%
+		    \projectEntryName{https://github.com/axal25/SecureApplicationPractices}{SecureApplicationPractices}\\%
+		    \projectEntryTechStack{{Docker}, {PostgreSQL}, {Spring}, {Android (Java)}, {Gradle}, {Java}, {Maven}, {LaTeX}}\\%
+		    \projectEntryTech{3 part project: back-end (\emph{Java Spring REST} + \emph{PostgreSQL}), \emph{Android} app, front-end (\emph{Vue.js}). I’m the sole author of the project’s back-end and most of the \emph{Android} app. The project demonstrates difference between secured and vulnerable implementations of \emph{REST} service. Included exposure examples are located in various layers: some on the database level, the others in the \emph{REST API}.}\\%
+		    \projectEntryName{https://github.com/axal25/WeatherForecastApp_Swift_iOS}{WeatherForecastApp\textunderscore Swift\textunderscore iOS}\\%
+		    \projectEntryTechStack{{Swift (iOS \textbullet{} Storyboard)}}\\%
+		    \projectEntryTech{Simple weather forecast application utilizing \coloredHref{https://www.metaweather.com/api/}{MetaWeather API} written in \emph{Swift} for \emph{iOS} using \emph{Storyboard}.}\\%
+			\projectEntryName{https://github.com/axal25/BareJS}{BareJS}\\%
+			\projectEntryTechStack{{JavaScript (ECMA 6)}, {HTML}, {CSS}}\\%
+			\projectEntryTech{Project demostrating functionality of \emph{JavaScript}, \emph{CSS}, \emph{HTML} with live version on \coloredHref{https://axal25.github.io/BareJS/}{GitHub Pages}.}\\%
+			\projectEntryName{https://github.com/axal25/SoapRest}{SoapRest}\\%
+			\projectEntryTechStack{{Java},{Wildfly},{Maven},{RestEasy},{Swagger},{Protocol Buffer 3 (Google)}}\\%
+			\projectEntryTech{Project for Service-Oriented Architecture university course. \emph{SOAP} and \emph{REST} services and clients written for \emph{JBoss Application Server (Wildfly 14.0.1.Final)} using \emph{Java} and \emph{Maven}. \emph{REST} service contains usage of \coloredHref{https://developers.google.com/protocol-buffers/}{Protocol buffer 3 (google)}. \emph{SOAP} service has \emph{BASIC} method authorization while \emph{REST} token-based. Both services allow \emph{Byte64} objects transfer.}\\%
+			\projectEntryName{https://github.com/axal25/JacksChess}{JacksChess}\\%
+			\projectEntryTechStack{{Ada},{GtkAda (GTK+) 3.0},{AdaCore GPS},{Windows}}\\%
+			\projectEntryTech{Chess game implemented in \textit{Ada} programming language using graphics library \textit{GtkAda (GTK+ 3.0)} for \textit{Windows} platform. Program was written and compiled via \textit{AdaCore's GPS IDE} supplying library \textit{GtkAda}.}\\%
+		\end{tabularx}
+	\end{textblock*}
+}
+
+\newcommand{\linespacing}[1]{\renewcommand{\linespacing}{#1}}
+\linespacing{1.5}
+
+\newcommand{\myGithub}{\raiseGithub\relax}
+\newcommand{\raiseGithub}[1]{\raisebox{-2.0\depth}{\faGithub}}
+
+\newcommand{\projectEntryName}[2]{%
+	\vspace{4px}%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\changeFontSize{14px} %
+	\href{#1}{%
+		\myGithub\changeFontSize{9px}\hspace*{-0.15cm}\textbf{#2}%
+	}%
+}
+
+\newcommand{\projectEntryTechStack}[1]{%
+	\vspace{4px}%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\changeFontSize{9px}%
+	\foreach \tech [count=\i] in {#1}%
+	{
+		\ifnum\i=1
+			\tech 
+		\else
+			 \textbullet{} \tech%
+		\fi%
+	}%
+}
+
+\newcommand{\projectEntryDesc}[1]{%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\color{colorSectionGray}%
+	\changeFontSize{8px}%
+	#1%
+}
+
+\newcommand{\projectEntryTech}[1]{%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\changeFontSize{8px}%
+	\textbf{#1}%
+}
+
+\newcommand{\projectEntryFunc}[1]{%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\changeFontSize{8px}%
+	#1%
+}
+
+\newcommand{\coloredHref}[2]{%
+	\renewcommand{\baselinestretch}{\linespacing}%
+	\href{#1}{\color{colorSectionBlue} #2}%
+}
+
+% #1 - url
+% #2 - X position, 
+% #3 - Y position
+% #4 - X size, 
+% #5 - Y size
+\newcommand{\posHrefArea}[5]{
+	\begin{textblock}{3}(#2, #3)
+		\href{#1}{
+			\drawHrefArea{#4}{#5}	
+		}
+	\end{textblock}
+}
+
+\newcommand{\hrefAreaOpacity}[1]{\renewcommand{\hrefAreaOpacity}{#1}}
+\hrefAreaOpacity{0.5} 
+
+\newcommand{\drawHrefArea}[2]{
+	\begin{tikzpicture}
+		\node[
+			anchor=north west, 
+			rectangle, 
+			draw=black,
+			fill=black!20, 
+			minimum width = #1, 
+			minimum height = #2, 
+			opacity=\hrefAreaOpacity
+		] (box) at (0,0) {};
+	\end{tikzpicture}
+}
+
+\newcommand{\drawPermissionFootnote}{
+	% 	\permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych również na potrzeby przyszłych rekrutacji, zgodnie z art. 6 ust. 1 lit. a Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych)}
+% 	\permissionFootnote%
+% 		{Wyrażam zgodę na przetwarzanie danych osobowych zawartych w niniejszym dokumencie do realizacji procesu rekrutacji zgodnie z ustawą z dnia 10 maja 2018 roku o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO)}
+    % \permissionFootnote%
+    % {\centering Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych dla realizacji bieżących i przyszłych rekrutacji prowadzonych przez Dassault Systemes Sp. z o. o.  z siedziba w Krakowie (zgodnie z ustawą z dnia 27 sierpnia 1997r. o Ochronie Danych Osobowych, Dz. U. z 2002 r. Nr 101, poz. 926 z późniejszymi zmianami)}
+    % \permissionFootnote%
+    % {Wyrażam zgodę na przetwarzanie danych osobowych na potrzeby przyszłych rekrutacji prowadzonych przez CENTRUM HOLDING 1 spółka akcyjna sp.k. Wyrażam zgodę na udostępnienie moich danych dla spółek powiązanych kapitałowo i właścicielsko z CENTRUM HOLDING 1przez okres 1 roku od daty przesłania niniejszego dokumentu. Lista spółek znajduje się pod adresem: www.holding1.pl}
+    % \permissionFootnote%
+    % {Wyrażam zgodę na przetwarzanie przez Altar Sp. z o.o. z siedzibą w Kielcach przy ul. Różanej 5 moich danych osobowych, zawartych w złożonych przeze mnie dokumentach w celu przeprowadzania procesu rekrutacji na stanowisko Software Developer. \\
+    % Wyrażam zgodę na przetwarzanie przez Altar Sp. z o.o. moich danych osobowych, w celu przeprowadzenia przyszłych procesów rekrutacyjnych.}
+    % \permissionFootnote%
+    % {Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. 2016 r. poz. 922) przez okres niezbędny do przeprowadzenia procesu rekrutacji lecz nie dłużej niż 6 miesięcy od daty przesłania CV.}
+    % \permissionFootnote%
+    % {Wyrażam zgodę na przetwarzanie moich danych osobowych zawartych w mojej ofercie pracy przez drEryk S.A. dla celów obecnej i przyszłych procesów rekrutacji. Oświadczam, iż zostałem poinformowany, że administratorem moich danych osobowych w rozumieniu Rozporządzenia Parlamentu Europejskiego i Rady (UE) nr 2016/679 z dnia 27.04.2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych; RODO) jest spółka drEryk S.A. z siedzibą w Krakowie, przy ul. Wadowickiej 6, 30 – 415 Kraków (KRS: 0000680603)\\
+    % Zostałem/am poinformowany/a o dobrowolności podania danych, prawie do wglądu w ich treści oraz ich poprawiania i usuwania.}
+    % \permissionFootnote%
+    % {I hereby declare that I have familiarized myself with the Privacy Statement for Applicants published at http://www.about.hsbc.pl/careers and I hereby give consent for personal data included in my application to be processed for the purposes of recruitment in HSBC Service Delivery (Polska) Sp. z o. o. according to rules described in the Privacy Statement for Applicants, as per the Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (GDPR).}
+    % \permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji w Benhauer Sp. z o.o. (zgodnie z ustawą z dnia 10 maja 2018 roku o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO).}
+    \permissionFootnote{-0.5cm}{28.25cm}{Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. 2016 r. poz. 922) przez okres niezbędny do przeprowadzenia procesu rekrutacji lecz nie dłużej niż 6 miesięcy od daty przesłania CV.}
+}
+
+\newcommand{\permissionFootnote}[3]{
+    \newlength\xPosFootnoteFrame
+	\setlength\xPosFootnoteFrame{#1}
+	
+    \newlength\yPosFootnoteFrame
+	\setlength\yPosFootnoteFrame{#2}
+	
+    \newlength\xPosFootnoteTable
+	\setlength\xPosFootnoteTable{\xPosFootnoteFrame}
+    \addtolength\xPosFootnoteTable{+0.35cm}
+	
+    \newlength\yPosFootnoteTable
+	\setlength\yPosFootnoteTable{\yPosFootnoteFrame}
+    \addtolength\yPosFootnoteTable{+0.1cm}
+    
+	\changeFontSize{9px}%
+	\color{colorSectionGray}
+	\begin{textblock*}{\textwidth}(\xPosFootnoteFrame, \yPosFootnoteFrame)
+		\begin{tikzpicture}
+			\node[
+				anchor=north west, 
+				rectangle, 
+				draw=black,
+				fill=black!10, 
+				minimum width = 21.7cm, 
+				minimum height = 1.2cm, 
+				opacity=1.0
+			] (box) at (0,0) {};
+		\end{tikzpicture}
+	\end{textblock*}
+	\begin{textblock*}{\textwidth}(\xPosFootnoteTable, \yPosFootnoteTable)
+		\begin{tabularx}{\textwidth}{m{\textwidth}}
+		    \centering%
+			#3%
+			\\%
+		\end{tabularx}
+	\end{textblock*}
+}
+
+\begin{document}
+    \drawDocument
+\end{document}

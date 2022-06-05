@@ -1,25 +1,34 @@
 % https://pdfhost.io/v/IoOkJ0QfC_JacekOlesCVpdf.pdf
 % https://pdfhost.io/edit?doc=5d63b4cd-be53-4241-a5cf-4a75d37bb6be
 \documentclass[hidelinks, a4paper, 11pt]{article}
-\author{Jacek Ole\'s}
+\author{Jacek Oleś}
 \title{CV}
-\date{01.07.2019}
+\date{14.04.2022}
 
 \usepackage[english,polish]{babel}
 \usepackage{polski}
 \usepackage[T1]{fontenc}
 % \usepackage[latin2]{inputenc} 
 \usepackage[utf8]{inputenc}
-\selectlanguage{polish}
 \usepackage[sfdefault]{ClearSans}
 \usepackage[margin=0pt]{geometry}
-
 \usepackage{csquotes}
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{forloop}
+\usepackage{textpos}
+\usepackage{parskip}
+\usepackage{ifmtarg}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+\usepackage{tabularx, etoolbox}
+
+\selectlanguage{polish}
+
 \DeclareQuoteAlias{croatian}{polish}
 
-\usepackage{listings}
 \lstset{language=TeX}
-
 \lstset{%
 	literate={ą}{{\k{a}}}1
 	{ć}{{\'c}}1
@@ -41,12 +50,10 @@
 	{Ż}{{\.Z}}1
 }
 
-\usepackage[dvipsnames]{xcolor}
-\usepackage{tikz}
 \definecolor{testColor}{HTML}{ff33f9}
 \definecolor{sideBarColor}{RGB}{210, 210, 210}
 \newcommand{\sideBarWidth}[1] { \renewcommand{\sideBarWidth}{#1} }
-\sideBarWidth{8cm}
+\sideBarWidth{20em}
 \newcommand{\drawSideBar}{
 	\begin{tikzpicture}[remember picture,overlay]
    		\node [ 
@@ -55,21 +62,29 @@
    			anchor=north west, 
    			minimum width = \sideBarWidth+0.05cm, 
    			minimum height= \paperheight+0.5cm 
-   		] (box) at (-0.85cm,0.5cm) { };
+   	% 	] (box) at (-0.85cm,0.5cm) { };
+   		] (box) at (0cm,0cm) { };
 	\end{tikzpicture}
 }
 
 \definecolor{nameColor}{RGB}{34, 85, 128}
 \newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
-\cvname{Jacek Ole\'s}
+\cvname{Jacek Oleś}
 \newcommand{\xPosName}[1]{\renewcommand{\xPosName}{#1}}
 \xPosName{1.25}
 \newcommand{\yPosName}[1]{\renewcommand{\yPosName}{#1}}
 \yPosName{-0.375}
+\newcommand{\sideBarHOffset}[1]{\renewcommand{\sideBarHOffset}{#1}}
+\sideBarHOffset{5em}
 \newcommand{\drawName}{
-	\begin{textblock}{2}(\xPosName, \yPosName)
-    	\vspace{3mm} { \Huge \color{nameColor} \cvname }
-    \end{textblock}
+    \begin{center}
+    \begin{textblock*}{\sideBarWidth}(0cm,0cm)
+    	\normalsize \color{nameColor} \textbf{\cvname} \hspace*{\sideBarHOffset{}}
+    \end{textblock*}
+    \end{center}
+% 	\begin{textblock}{2}(\xPosName, \yPosName)
+%     	\vspace{3mm} \textbf{ \normalsize \color{nameColor} \cvname }
+%     \end{textblock}
 }
 
 \newlength\profilePicSize
@@ -104,7 +119,6 @@
 	\end{center}
 }
 
-\usepackage{textpos}
 \newcommand{\xPosProfilePic}[1]{\renewcommand{\xPosProfilePic}{#1}}
 \xPosProfilePic{0.65}
 \newcommand{\yPosProfilePic}[1]{\renewcommand{\yPosProfilePic}{#1}}
@@ -114,11 +128,6 @@
 			\drawProfilePic{#1}
 		\end{textblock}
 }
-
-\usepackage{parskip}
-\usepackage{ifmtarg}
-\usepackage{hyperref}
-\usepackage{fontawesome}
 
 \definecolor{locationIconColor}{RGB}{30, 163, 98}
 \definecolor{webPageIconColor}{RGB}{30, 187, 238}
@@ -256,7 +265,6 @@
 \pgfmathsetlength{\currentYOffset}{0}
 \definecolor{iconBackDropColor}{RGB}{255,255,255}
 
-\usepackage{forloop}
 \newcommand{\drawContactInfoCircles}{
 	\newcounter{currentNumberOfCircle}
 	\begin{tikzpicture}[remember picture,overlay]
@@ -414,6 +422,7 @@
 			\textbullet{} & \href{https://www.coursera.org/learn/logic-introduction}{Introduction to Logic \newline%
 			by Stanford University \newline%
 			Online course via Coursera.org} \\
+			\textbullet{} & \href{https://academy.pega.com/exam/pega-certified-system-architect-3}{Pega Certified System Architect 8.5}
 		\end{tabularx}
 	\end{textblock}
 }
@@ -507,7 +516,6 @@
 	}
 }
 
-\usepackage{tabularx, etoolbox}
 \newlength\customTableWidth
 \pgfmathsetlength{\customTableWidth}{0.6\textwidth}
 \newlength\customColumnWidthOne
@@ -739,11 +747,11 @@
 \newcommand{\xPosFootnoteFrame}[1]{\renewcommand{\xPosFootnoteFrame}{#1}}
 \xPosFootnoteFrame{-0.5}
 \newcommand{\yPosFootnoteFrame}[1]{\renewcommand{\yPosFootnoteFrame}{#1}}
-\yPosFootnoteFrame{14.95}
+\yPosFootnoteFrame{15.15}
 \newcommand{\xPosFootnoteTable}[1]{\renewcommand{\xPosFootnoteTable}{#1}}
 \xPosFootnoteTable{-0.1}
 \newcommand{\yPosFootnoteTable}[1]{\renewcommand{\yPosFootnoteTable}{#1}}
-\yPosFootnoteTable{15.05}
+\yPosFootnoteTable{15.20}
 \newcommand{\permissionFootnote}[1]{
 	\changeFontSize{9px}%
 	\color{colorSectionGray}
@@ -755,13 +763,14 @@
 				draw=black,
 				fill=black!10, 
 				minimum width = 21.7cm, 
-				minimum height = 1.6cm, 
+				minimum height = 2.2cm, 
 				opacity=1.0
 			] (box) at (0,0) {};
 		\end{tikzpicture}
 	\end{textblock}
 	\begin{textblock}{2}(\xPosFootnoteTable, \yPosFootnoteTable)
 		\begin{tabularx}{\footnoteTableWidth}{m{\footnoteTableWidth}}
+		    \centering%
 			#1%
 			\\%
 		\end{tabularx}
@@ -788,14 +797,15 @@
 	%%%	polishVersion
 	\sideBarSection{Skills}{0pt}
 	\posSkills{%
-	    {C \textbullet{} C++ \textbullet{} Node.js \textbullet{} Angular 5 \textbullet{} React /2.75},%
-	    {Wildfly \textbullet{} Swift (iOS) \textbullet{} MS Office /3.0},%
-	    {Erlang, Prolog, Haskell /3.25},%
-	    {JavaFX \textbullet{} Android (Java) \textbullet{} Ada \textbullet{} Matlab /3.5},%
-		{HTML \textbullet{} CSS \textbullet{} JavaScript /3.75},%
-		{Unix \textbullet{} Github \textbullet{} LaTeX /4.0},%
-		{PostgreSQL \textbullet{} Maven \textbullet{} Spring /4.25},%
-		{Java /4.5}%
+	    {C \textbullet{} C++ \textbullet{} Node.JS \textbullet{} Ada \textbullet{} Matlab /2.5},%
+	    {Tomcat \textbullet{} JBoss Wildfly \textbullet{} Swift (iOS) \textbullet{} MS Office /3.0},%
+	    {Erlang \textbullet{} Prolog \textbullet{} Haskell \textbullet{} Scala \textbullet{} Android (Java) /3.25},%
+	    {Pega \textbullet{} Proto3 \textbullet{} CitC \textbullet{} Blaze /3.5},%
+	    {OracleDB \textbullet{} Docker \textbullet{} Angular \textbullet{} ReactJS /3.75},%
+		{HTML \textbullet{} CSS \textbullet{} JavaScript /4.0},%
+		{Unix \textbullet{} Github \textbullet{} LaTeX /4.25},%
+		{PostgreSQL \textbullet{} Maven \textbullet{} Spring MVC\slash Boot /4.5},%
+		{Java \textbullet{} J2EE \textbullet{} JUnit 4\slash 5 /4.75}%
 	}
 	\sideBarSection{Certificates}{ \yPosCertificatesSection }
 	\certificates
@@ -810,10 +820,22 @@
 	\posCustomSection{Interests}{6}{ \yPosInterestSection }
 	\interests{5.6}{13.55}
 % 	\permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych również na potrzeby przyszłych rekrutacji, zgodnie z art. 6 ust. 1 lit. a Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych)}
-	\permissionFootnote%
-		{Wyrażam zgodę na przetwarzanie danych osobowych zawartych w niniejszym dokumencie do realizacji procesu rekrutacji zgodnie z ustawą z dnia 10 maja 2018 roku o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO)}
+% 	\permissionFootnote%
+% 		{Wyrażam zgodę na przetwarzanie danych osobowych zawartych w niniejszym dokumencie do realizacji procesu rekrutacji zgodnie z ustawą z dnia 10 maja 2018 roku o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO)}
+    % \permissionFootnote%
+    % {\centering Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych dla realizacji bieżących i przyszłych rekrutacji prowadzonych przez Dassault Systemes Sp. z o. o.  z siedziba w Krakowie (zgodnie z ustawą z dnia 27 sierpnia 1997r. o Ochronie Danych Osobowych, Dz. U. z 2002 r. Nr 101, poz. 926 z późniejszymi zmianami)}
+    % \permissionFootnote%
+    % {Wyrażam zgodę na przetwarzanie danych osobowych na potrzeby przyszłych rekrutacji prowadzonych przez CENTRUM HOLDING 1 spółka akcyjna sp.k. Wyrażam zgodę na udostępnienie moich danych dla spółek powiązanych kapitałowo i właścicielsko z CENTRUM HOLDING 1przez okres 1 roku od daty przesłania niniejszego dokumentu. Lista spółek znajduje się pod adresem: www.holding1.pl}
+    % \permissionFootnote%
+    % {Wyrażam zgodę na przetwarzanie przez Altar Sp. z o.o. z siedzibą w Kielcach przy ul. Różanej 5 moich danych osobowych, zawartych w złożonych przeze mnie dokumentach w celu przeprowadzania procesu rekrutacji na stanowisko Software Developer. \\
+    % Wyrażam zgodę na przetwarzanie przez Altar Sp. z o.o. moich danych osobowych, w celu przeprowadzenia przyszłych procesów rekrutacyjnych.}
+    % \permissionFootnote%
+    % {Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. 2016 r. poz. 922) przez okres niezbędny do przeprowadzenia procesu rekrutacji lecz nie dłużej niż 6 miesięcy od daty przesłania CV.}
+    % \permissionFootnote%
+    % {Wyrażam zgodę na przetwarzanie moich danych osobowych zawartych w mojej ofercie pracy przez drEryk S.A. dla celów obecnej i przyszłych procesów rekrutacji. Oświadczam, iż zostałem poinformowany, że administratorem moich danych osobowych w rozumieniu Rozporządzenia Parlamentu Europejskiego i Rady (UE) nr 2016/679 z dnia 27.04.2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych; RODO) jest spółka drEryk S.A. z siedzibą w Krakowie, przy ul. Wadowickiej 6, 30 – 415 Kraków (KRS: 0000680603)\\
+    % Zostałem/am poinformowany/a o dobrowolności podania danych, prawie do wglądu w ich treści oraz ich poprawiania i usuwania.}
+    % \permissionFootnote%
+    % {I hereby declare that I have familiarized myself with the Privacy Statement for Applicants published at http://www.about.hsbc.pl/careers and I hereby give consent for personal data included in my application to be processed for the purposes of recruitment in HSBC Service Delivery (Polska) Sp. z o. o. according to rules described in the Privacy Statement for Applicants, as per the Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (GDPR).}
+    % \permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji w Benhauer Sp. z o.o. (zgodnie z ustawą z dnia 10 maja 2018 roku o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO).}
+    \permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. 2016 r. poz. 922) przez okres niezbędny do przeprowadzenia procesu rekrutacji lecz nie dłużej niż 6 miesięcy od daty przesłania CV.}
 \end{document}
-
-% \k{a} \'c \k{e} \l{} \'n \'o \'s
-% \'z \.z \k{A} \'C \k{E} \L{} \'N
-% \'O \'S \'Z \.Z

@@ -334,7 +334,7 @@
 \newcommand{\xPosSkills}[1]{\renewcommand{\xPosSkills}{#1}}
 \xPosSkills{ 0.35 }
 \newcommand{\yPosSkills}[1]{\renewcommand{\yPosSkills}{#1}}
-\yPosSkills{ 7.15 }
+\yPosSkills{ 6.95 }
 \newcommand{\posSkills}[1]{
 	\begin{textblock}{2}(\xPosSkills, \yPosSkills)
 		\drawSkills{#1}
@@ -396,7 +396,7 @@
 \newcommand{\xPosCertificates}[1]{\renewcommand{\xPosCertificates}{#1}}
 \xPosCertificates{ 0.15 }
 \newcommand{\yPosCertificates}[1]{\renewcommand{\yPosCertificates}{#1}}
-\yPosCertificates{ 12.35 }
+\yPosCertificates{ 12.55 }
 \newlength\certificatesTableWidth
 \pgfmathsetlength{\certificatesTableWidth}{6.0cm}
 \newlength\certificatesColumnWidthOne
@@ -555,8 +555,9 @@
 		\begin{tabularx}{\expierienceTableWidth}{m{\expierienceColumnWidthOne}m{\expierienceColumnWidthTwo}}
 			{\changeFontSize{8px}\textbf{2017}}%
 			&%
-			{\changeFontSize{8px} BNP Paribas Bank Polska S.A.}%
+			{\changeFontSize{8px} \underline{BNP Paribas Bank Polska S.A.}}%
 			\\%
+			{\changeFontSize{8px}\textbf{VII-VIII}}%
 			&%
 			{\changeFontSize{8px}\textbf{Praktykant w zespole Zarządzania Projektami}}%
 			\\%
@@ -564,12 +565,30 @@
 			&%
 			{ \changeFontSize{8px} Organizacja spotkań z zespołami projektowymi oraz przygotowywanie raportów}%
 			\\%
-			&{ \changeFontSize{8px} podsumowujących spotkania.}\\%
+			&{ \changeFontSize{8px} podsumowujących spotkania. Przygotowanie aktualnego zestawienia budżetowego grupy projektów. Przygotowanie zestawienia, analiza dostępności i wiarygodności informacji w oferowanych bazach danych przez zewnętrzne firmy.}\\%
 			&%
-			{\changeFontSize{8px} Przygotowanie aktualnego zestawienia budżetowego grupy projektów.}%
-			\\
+			\\%
+			{\changeFontSize{8px}\textbf{2020 VII}}%
 			&%
-			{\changeFontSize{8px} Przygotowanie zestawienia, analiza dostępności i wiarygodności informacji w oferowanych bazach danych przez zewnętrzne firmy.}%
+			{\changeFontSize{8px} \underline{Visiona Sp. z o.o.}}%
+			\\%
+			&%
+			{\changeFontSize{8px}\textbf{Junior Software Engineer}}%
+			\\%
+			{\color{colorSectionGray} \changeFontSize{8px} Obowiązki}%
+			&%
+			{\changeFontSize{8px} Szerokopojęty rozwój oraz utrzymanie aplikacji webowej korzystając z \underline{Redmine}, \underline{Gitlab}}%
+			\\%
+			&%
+			{\changeFontSize{8px} oraz \underline{Jenkins}. Dokumentacja zmian dotyczących zadań, czasu na nie poświęconego, \newline weryfikacja poprawności oraz jakości kodu napisanego w ramach tych zadań. \newline Przygotowanie do testów manulanych i BDD, środowisk \underline{Docker} używając zadań \underline{Jenkins}. Uczestniczenie w cotygodniowych spotkaniach zespołu projektowego. Implementacja kodu \underline{Java EE} w środowisku \underline{IntelliJ} z pomocą \underline{J/XRebel}, wykorzystując \underline{JPA}, \underline{Hibernate}, \underline{Spring}, \underline{JSF} na platformę \underline{Tomcat}}.%
+			\\%
+			&%
+			{\changeFontSize{8px} }%
+			\\%
+			&%
+			{\changeFontSize{8px} }%
+			\\%
+
 		\end{tabularx}
 	\end{textblock}
 }
@@ -649,10 +668,6 @@
 			\projectEntryTech{Projekt przedstawia funkcjonalności \emph{JavaScript}, \emph{CSS}, \emph{HTML} w wersji live na \coloredHref{https://axal25.github.io/BareJS/}{GitHub Pages}.}\\%
 			\projectEntryName{https://github.com/axal25/SoapRest}{SoapRest}\\%
 			\projectEntryTechStack{{Java},{Wildfly},{Maven},{RestEasy},{Swagger},{Protocol Buffer 3 (Google)}}\\%
-			\projectEntryTech{Projekt wykonany na zajęcia uczelniane SOA (Service-Oriented Architecture). Zawiera usługi oraz aplikacje klienckie \emph{SOAP} i \emph{REST} dla \emph{JBoss Application Server (Wildfly 14.0.1.Final)} w języku programowania \emph{Java} z pomocą \emph{Maven}a. Usługa \emph{REST} zawiera użycie \coloredHref{https://developers.google.com/protocol-buffers/}{Protocol buffer 3 (google)}. Usługa \emph{SOAP} posiada autoryzację \emph{BASIC}, a usługa \emph{REST} autoryzację tokenową. Obie usługi pozwalają na przesyłanie obiektów typu \emph{Byte64}.}\\%
-			\projectEntryName{https://github.com/axal25/JacksChess}{JacksChess}\\%
-			\projectEntryTechStack{{Ada},{GtkAda (GTK+) 3.0},{AdaCore GPS},{Windows}}\\%
-			\projectEntryTech{Gra szachów zaimplementowana w języku programowania \emph{Ada} przy użyciu graficznej biblioteki \textit{GtkAda (GTK+ 3.0)} na \textit{Windows}a. Program został napisany i skompilowany przy użyciu \textit{AdaCore GPS IDE}, który załączał bibliotekę\textit{GtkAda}.}\\%
 		\end{tabularx}
 	\end{textblock}
 }
@@ -739,7 +754,7 @@
 \newcommand{\xPosFootnoteFrame}[1]{\renewcommand{\xPosFootnoteFrame}{#1}}
 \xPosFootnoteFrame{-0.5}
 \newcommand{\yPosFootnoteFrame}[1]{\renewcommand{\yPosFootnoteFrame}{#1}}
-\yPosFootnoteFrame{14.95}
+\yPosFootnoteFrame{15.0}
 \newcommand{\xPosFootnoteTable}[1]{\renewcommand{\xPosFootnoteTable}{#1}}
 \xPosFootnoteTable{-0.1}
 \newcommand{\yPosFootnoteTable}[1]{\renewcommand{\yPosFootnoteTable}{#1}}
@@ -762,6 +777,7 @@
 	\end{textblock}
 	\begin{textblock}{2}(\xPosFootnoteTable, \yPosFootnoteTable)
 		\begin{tabularx}{\footnoteTableWidth}{m{\footnoteTableWidth}}
+		    \centering
 			#1%
 			\\%
 		\end{tabularx}
@@ -771,7 +787,7 @@
 \newcommand{\yPosInterestSection}[1]{\renewcommand{\yPosInterestSection}{#1}}
 \yPosInterestSection{ 13.2 } 
 \newcommand{\yPosCertificatesSection}[1]{\renewcommand{\yPosCertificatesSection}{#1}}
-\yPosCertificatesSection{ 274pt } 
+\yPosCertificatesSection{ 285pt } 
 \newlength\projectsHrefAreaWidth
 \pgfmathsetlength{\projectsHrefAreaWidth}{\projectsTableWidth+0.9cm}
 \newcommand{\xPosProjectsHrefArea}[1]{\renewcommand{\xPosProjectsHrefArea}{#1}}
@@ -786,15 +802,17 @@
 	\posContactInfo
 		
 	%%%	polishVersion
-	\sideBarSection{Umiejętności}{0pt}
+	\sideBarSection{Umiejętności}{-10pt}
 	\posSkills{%
-	    {C \textbullet{} C++ \textbullet{} Node.js \textbullet{} Angular 5 \textbullet{} React /2.75},%
-	    {Wildfly \textbullet{} Swift (iOS) \textbullet{} MS Office /3.0},%
-	    {Erlang, Prolog, Haskell /3.25},%
-	    {JavaFX \textbullet{} Android (Java) \textbullet{} Ada \textbullet{} Matlab /3.5},%
-		{HTML \textbullet{} CSS \textbullet{} JavaScript /3.75},%
-		{Unix \textbullet{} Github \textbullet{} LaTeX /4.0},%
-		{PostgreSQL \textbullet{} Maven \textbullet{} Spring /4.25},%
+	    {MS Office \textbullet{} C \textbullet{} C++ \textbullet{} Ada \textbullet{} Matlab /1.5},%
+	    {Erlang \textbullet{} Prolog \textbullet{} Haskell \textbullet{} Scala /2.0},%
+	    {JavaFX \textbullet{} Swift (iOS) \textbullet{} Android (Java) /2.5},%
+	    {Node.js \textbullet{} Angular 5 \textbullet{} React.js /3.0},%
+	    {OracleDB \textbullet{} Wildfly \textbullet{} Tomcat \textbullet{} Jenkins /3.25},%
+		{HTML \textbullet{} CSS \textbullet{} JavaScript \textbullet{} JSF /3.5},%
+		{Unix \textbullet{} Github \textbullet{} LaTeX \textbullet{} Docker /3.75},%
+		{PostgreSQL \textbullet{} Maven \textbullet{} JPA /4.0},%
+		{JUnit 4\textbackslash 5 \textbullet{} Mockito \textbullet{} Spring /4.25},%
 		{Java /4.5}%
 	}
 	\sideBarSection{Certyfikaty}{ \yPosCertificatesSection }
@@ -803,14 +821,21 @@
 	\educationTable
 	\posCustomSection{Do{\'s}wiadczenie}{6}{0.955}
 	\experienceTable{5.6}{1.625}
-	\posCustomSection{Projekty}{6}{3.35}
-	\posProjectHyperLinkInformation{{\color{colorSectionBlue}Wszystkie} tytuły projektów zawierają linki do repozytoriów \newline zawierających dany projekt. Proszę kliknąć ikonkę \emph{github}a lub tytuł projektu, aby przejść do repozytorium.}{8.7}{3.35}
-	\projectsTable{5.5}{3.95}
+	\posCustomSection{Projekty}{6}{5.75}
+	\posProjectHyperLinkInformation{{\color{colorSectionBlue}Wszystkie} tytuły projektów zawierają linki do repozytoriów \newline zawierających dany projekt. Proszę kliknąć ikonkę \emph{github}a lub tytuł projektu, aby przejść do repozytorium.}{8.7}{5.75}
+	\projectsTable{5.5}{6.35}
 
 	\posCustomSection{Zainteresowania}{6}{ \yPosInterestSection }
 	\interests{5.6}{13.85}
 % 	\permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych również na potrzeby przyszłych rekrutacji, zgodnie z art. 6 ust. 1 lit. a Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych)}
-    \permissionFootnote{Wyrażam zgodę na przetwarzanie danych osobowych zawartych w niniejszym dokumencie do realizacji procesu rekrutacji zgodnie z ustawą z dnia 10 maja 2018 roku o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO)}
+    % \permissionFootnote{Wyrażam zgodę na przetwarzanie danych osobowych zawartych w niniejszym dokumencie do realizacji procesu rekrutacji zgodnie z ustawą z dnia 10 maja 2018 roku o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO)}
+    % \permissionFootnote{Wyrażam zgodę na przetwarzanie przez Altar Sp. z o.o. z siedzibą w Kielcach przy ul. Różanej 5 moich danych osobowych, zawartych w złożonych przeze mnie dokumentach w celu przeprowadzania procesu rekrutacji na stanowisko Software Developer. \\
+    % Wyrażam zgodę na przetwarzanie przez Altar Sp. z o.o. moich danych osobowych, w celu przeprowadzenia przyszłych procesów rekrutacyjnych.}
+    % \permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. 2016 r. poz. 922) przez okres niezbędny do przeprowadzenia procesu rekrutacji lecz nie dłużej niż 6 miesięcy od daty przesłania CV.}
+    % \permissionFootnote{Wyrażam zgodę na przetwarzanie swoich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO).}
+    % \permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji w Benhauer Sp. z o.o. (zgodnie z ustawą z dnia 10 maja 2018 roku o ochronie danych osobowych (Dz. Ustaw z 2018, poz. 1000) oraz zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO).}
+    %\permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. 2016 r. poz. 922) przez okres niezbędny do przeprowadzenia procesu rekrutacji lecz nie dłużej niż 6 miesięcy od daty przesłania CV.}
+    \permissionFootnote{Wyrażam zgodę na przetwarzanie moich danych osobowych również na potrzeby przyszłych rekrutacji, zgodnie z art. 6 ust. 1 lit. a Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych)”}
 \end{document}
 
 % \k{a} \'c \k{e} \l{} \'n \'o \'s
