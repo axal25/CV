@@ -6,7 +6,7 @@ Two versions Polish and English.
 1. [Harsh Gadgil's Data-Engineer-Resume-LaTeX](https://github.com/opensorceror/Data-Engineer-Resume-LaTeX)
 2. [Twenty Seconds Resume/CV](https://www.latextemplates.com/template/twenty-seconds-resumecv)
 ## Preview
-![CV Screenshot](screen.png)
+![Preview Screenshot](preview_screen_shot.png)
 ## Licence
 Copyright 2019 Jacek Oleś
 
