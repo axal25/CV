@@ -35,8 +35,8 @@ limitations under the License.
    `git commit -m 'msg'`
 7. Verify commited changes  
    `git status`
-8. Push changes made to remote repository branch called **main**    
-   `git push -u origin main`
+8. Push changes made to remote repository branch called **master**    
+   `git push -u origin master`
 
 ### Pass
 
