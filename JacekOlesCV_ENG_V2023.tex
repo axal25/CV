@@ -76,20 +76,34 @@
 	\drawSideBarSection{0.3cm}{7.85cm}{Skills}
 	
 	\drawSkills{0.34cm}{9.0cm}{%
-	    {JavaFX \textbullet{} Ada /1.0},%
-	    {C \textbullet{} C++ \textbullet{} Node.JS \textbullet{} Matlab /1.25},%
-	    {Erlang \textbullet{} Prolog \textbullet{} Haskell \textbullet{} Scala \textbullet{} JPA /1.5},%
-	    {Swift (iOS) \textbullet{} MS Office \textbullet{} LaTeX \textbullet{} Jenkins /1.75},%
-	    {Google's: Piper \textbullet{} CitC \textbullet{} Critique /2.0},%
-	    {Google's: BUILD \textbullet{} Blaze /2.25},%
-	    {Proto3 \textbullet{} Guice \textbullet{} Mockito \textbullet{} JSF /2.5},%
-	    {Tomcat \textbullet{} JBoss Wildfly \textbullet{} Android (Java) /3.0},%
-	    {Pega Platform /3.5},%
-	    {OracleDB \textbullet{} Docker \textbullet{} Angular \textbullet{} ReactJS /3.75},%
-		{PostgreSQL \textbullet{} Maven \textbullet{} Spring MVC\slash Boot /4.0},%
-		{HTML \textbullet{} CSS \textbullet{} JavaScript /4.25},%
-		{Unix \textbullet{} Github /4.5},%
-		{Java \textbullet{} J2EE \textbullet{} JUnit 4\slash 5 /4.75}%
+% 
+	 %    {C \textbullet{} C++ \textbullet{} Node.JS \textbullet{} Matlab \textbullet{} LaTeX \textbullet{} JavaFX \textbullet{} Ada /1.0},%
+		% {OS: Unix \textbullet{} Windows \textbullet{} Mac \textbullet{} Android \textbullet{} iOS /1.25},%
+	 %    {Swift (iOS) \textbullet{} Scala \textbullet{} Erlang \textbullet{} Prolog \textbullet{} Haskell /1.5},%
+	 %    {  /1.75},%
+	 %    {CI\slash CD: Docker \textbullet{} Jenkins \textbullet{} Google's: TAP \textbullet{} Rapid \textbullet{} Borg /2},%
+	 %    {HTTP: REST \textbullet{} SOAP \textbullet{} gRPC\slash Stubby\slash Protobuf /2.25},%
+	 %    {Package: Maven \textbullet{} Google's: BUILD\slash Blaze \textbullet{}  /2.5},%
+	 %    {VCS: Git \textbullet{} Piper \textbullet{} CitC \textbullet{} Critique \textbullet{} SVN /2.75},%
+		% {Front-End: JSF \textbullet{} Angular \textbullet{} ReactJS \textbullet{} HTML \textbullet{} CSS \textbullet{} JavaScript /3.0},%
+	 %    {Low-code: Pega BPM /3.5},%
+	 %    {DBs: Oracle \textbullet{} Postgres \textbullet{} Google's: Spanner F1 /3.75},%
+		% {J2EE \textbullet{} Spring \textbullet{} Google's: Guice /4.0},%
+	 %    {Servers: Tomcat \textbullet{} JBoss Wildfly /4.25},%
+		% {Java \textbullet{} JPA (Eclipse Link, Hibernate) \textbullet{} JUnit 4\slash 5 \textbullet{} Mockito /4.75}%
+% 
+	    {\textbf{Low-code:} Pega BPM /3.0},%
+		{JSF \textbullet{} Angular \textbullet{} React \textbullet{} Node /2.5},%
+		{\textbf{Front-End:} HTML \textbullet{} CSS \textbullet{} JavaScript /3.5},%
+	    {Google's: TAP \textbullet{} Rapid \textbullet{} Borg /2.5},%
+	    {\textbf{CI\slash CD:} Docker \textbullet{} Jenkins /2.25},%
+	    {\textbf{HTTP:} REST \textbullet{} SOAP \textbullet{} gRPC\slash Stubby\slash Protobuf /3.5},%
+	    {\textbf{Package:} Maven \textbullet{} Google's: BUILD\slash Blaze /3.5},%
+	    {\textbf{VCS:} Git \textbullet{} Piper \textbullet{} CitC \textbullet{} Critique \textbullet{} SVN /3.5},%
+	    {\textbf{DBs:} Oracle \textbullet{} Postgres \textbullet{} Google's: Spanner F1 /3.75},%
+		{J2EE \textbullet{} Spring \textbullet{} Google's: Guice /4.25},%
+		{JUnit 4\slash 5 \textbullet{} Mockito /4.5},%
+		{Java \textbullet{} JPA (Eclipse Link, Hibernate) /4.75}%
 	}
 	
 	\drawSideBarSection{0.3cm}{15.6cm}{Certificates}
@@ -373,6 +387,8 @@
     \newlength\currentSkillBarVPos
     \newlength\skillBarTextVOffset
     \pgfmathsetlength\skillBarTextVOffset{0.18cm}
+    \newlength\skillBarTextXOffset
+    \pgfmathsetlength\skillBarTextXOffset{-0.08cm}
 
     \begin{textblock*}{\sideBarWidth}(#1, #2)
         \begin{tikzpicture}
@@ -382,7 +398,7 @@
     		    
     			\draw[fill=skillBarBgColor,skillBarBgColor] (0,\currentSkillBarVPos) rectangle (6,\currentSkillBarVPos + \skillBarHeight);
     			\draw[fill=skillBarLvlColor,skillBarLvlColor](0,\currentSkillBarVPos) rectangle (\y,\currentSkillBarVPos + \skillBarHeight);
-    			\node [right] at (0,\currentSkillBarVPos + \skillBarTextVOffset) {\footnotesize\x};
+    			\node [right] at (\skillBarTextXOffset,\currentSkillBarVPos + \skillBarTextVOffset) {\scriptsize\x};
     		}
     	\end{tikzpicture}
 	\end{textblock*}
