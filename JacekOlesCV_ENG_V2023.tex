@@ -76,32 +76,17 @@
 	\drawSideBarSection{0.3cm}{7.85cm}{Skills}
 	
 	\drawSkills{0.34cm}{9.0cm}{%
-% 
-	 %    {C \textbullet{} C++ \textbullet{} Node.JS \textbullet{} Matlab \textbullet{} LaTeX \textbullet{} JavaFX \textbullet{} Ada /1.0},%
-		% {OS: Unix \textbullet{} Windows \textbullet{} Mac \textbullet{} Android \textbullet{} iOS /1.25},%
-	 %    {Swift (iOS) \textbullet{} Scala \textbullet{} Erlang \textbullet{} Prolog \textbullet{} Haskell /1.5},%
-	 %    {  /1.75},%
-	 %    {CI\slash CD: Docker \textbullet{} Jenkins \textbullet{} Google's: TAP \textbullet{} Rapid \textbullet{} Borg /2},%
-	 %    {HTTP: REST \textbullet{} SOAP \textbullet{} gRPC\slash Stubby\slash Protobuf /2.25},%
-	 %    {Package: Maven \textbullet{} Google's: BUILD\slash Blaze \textbullet{}  /2.5},%
-	 %    {VCS: Git \textbullet{} Piper \textbullet{} CitC \textbullet{} Critique \textbullet{} SVN /2.75},%
-		% {Front-End: JSF \textbullet{} Angular \textbullet{} ReactJS \textbullet{} HTML \textbullet{} CSS \textbullet{} JavaScript /3.0},%
-	 %    {Low-code: Pega BPM /3.5},%
-	 %    {DBs: Oracle \textbullet{} Postgres \textbullet{} Google's: Spanner F1 /3.75},%
-		% {J2EE \textbullet{} Spring \textbullet{} Google's: Guice /4.0},%
-	 %    {Servers: Tomcat \textbullet{} JBoss Wildfly /4.25},%
-		% {Java \textbullet{} JPA (Eclipse Link, Hibernate) \textbullet{} JUnit 4\slash 5 \textbullet{} Mockito /4.75}%
-% 
+% Python, C, C++, Node JS, Matlab, LaTeX, JavaFX, Ada, Unit, Windows, Mac, Android, iOS, Swift, Scala, Erlang, Prolog, Haskell, Docker, Jenkins, TAP, Rapid, Borg, HTTP, RESt, SOAP, gRPC/Stubby/Protobuf, Maven, BUILD/Blaze, Git, Piper, CitC, Critique, SVN, JSF, Angular, ReactJS, HTML, CSS, Javascript, Pega BPM, OracleDB, PostgreSQL, Spanner F1 DB, Spring, Guice, Tomcat, JBoss Widlfly, Java, JPA (Eclipse Link, Hibernate, Junit 4/5, Mockito
 	    {\textbf{Low-code:} Pega BPM /3.0},%
 		{JSF \textbullet{} Angular \textbullet{} React \textbullet{} Node /2.5},%
 		{\textbf{Front-End:} HTML \textbullet{} CSS \textbullet{} JavaScript /3.5},%
-	    {Google's: TAP \textbullet{} Rapid \textbullet{} Borg /2.5},%
+	    {\textit{(Google)} TAP \textbullet{} Rapid \textbullet{} Borg /2.5},%
 	    {\textbf{CI\slash CD:} Docker \textbullet{} Jenkins /2.25},%
 	    {\textbf{HTTP:} REST \textbullet{} SOAP \textbullet{} gRPC\slash Stubby\slash Protobuf /3.5},%
-	    {\textbf{Package:} Maven \textbullet{} Google's: BUILD\slash Blaze /3.5},%
+	    {\textbf{Package:} Maven \textbullet{} \textit{(Google)} BUILD\slash Blaze /3.5},%
 	    {\textbf{VCS:} Git \textbullet{} Piper \textbullet{} CitC \textbullet{} Critique \textbullet{} SVN /3.5},%
-	    {\textbf{DBs:} Oracle \textbullet{} Postgres \textbullet{} Google's: Spanner F1 /3.75},%
-		{J2EE \textbullet{} Spring \textbullet{} Google's: Guice /4.25},%
+	    {\textbf{DBs:} Oracle \textbullet{} Postgres \textbullet{} \textit{(Google)} Spanner F1 /3.75},%
+		{J2EE \textbullet{} Spring \textbullet{} \textit{(Google)} Guice /4.25},%
 		{JUnit 4\slash 5 \textbullet{} Mockito /4.5},%
 		{Java \textbullet{} JPA (Eclipse Link, Hibernate) /4.75}%
 	}
@@ -375,7 +360,7 @@
 }
 
 \newcommand{\drawSkills}[3]{
-    \definecolor{skillBarBgColor}{RGB}{150, 150, 150}
+    \definecolor{skillBarBgColor}{RGB}{230, 230, 230}
     % \definecolor{colorSectionBlue}{RGB}{0, 150, 222}
     \definecolor{skillBarLvlColor}{RGB}{0, 150, 222}
     \newlength\skillBarHeight
@@ -395,7 +380,6 @@
     		\foreach [count=\i] \x/\y in {#3}
     		{
     		    \pgfmathsetlength\currentSkillBarVPos{\i*\skillBarWithMarginHeight}
-    		    
     			\draw[fill=skillBarBgColor,skillBarBgColor] (0,\currentSkillBarVPos) rectangle (6,\currentSkillBarVPos + \skillBarHeight);
     			\draw[fill=skillBarLvlColor,skillBarLvlColor](0,\currentSkillBarVPos) rectangle (\y,\currentSkillBarVPos + \skillBarHeight);
     			\node [right] at (\skillBarTextXOffset,\currentSkillBarVPos + \skillBarTextVOffset) {\scriptsize\x};
